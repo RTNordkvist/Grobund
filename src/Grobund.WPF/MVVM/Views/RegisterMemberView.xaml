@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Grobund.WPF.MVVM.Views.RegisterMemberView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#1b1b1b">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+            
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Registrer Medlem" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="2" 
+                   FontSize="24" 
+                   Text="Fornavn" 
+                   Foreground="White" 
+                   TextAlignment="Justify"  />
+        <TextBox x:Name="firstNameText" 
+                 Grid.Column="2" 
+                 Grid.Row="2" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"
+                 />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="3" 
+                   FontSize="24" 
+                   Text="Efternavn" 
+                   Foreground="White"/>
+        <TextBox x:Name="lastNameText" 
+                 Grid.Column="2" 
+                 Grid.Row="3" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+        
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="4" 
+                   FontSize="24" 
+                   Text="Email" 
+                   Foreground="White"/>
+        <TextBox x:Name="emailText" 
+                 Grid.Column="2" 
+                 Grid.Row="4" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="5" 
+                   FontSize="24" 
+                   Text="Telefon Nummer" 
+                   Foreground="White"/>
+        <TextBox x:Name="phoneNumberText" 
+                 Grid.Column="2" 
+                 Grid.Row="5" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <Button x:Name="registerMemberSubmitButton" 
+                Content="Registrer" 
+                Grid.Column="2" 
+                Grid.Row="6" 
+                Margin="20,20,0,20"
+                Width="150"
+                HorizontalAlignment="Right" Click="registerMemberSubmitButton_Click"/>
+
+    </Grid>
+</UserControl>

@@ -8,13 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
+    <Compile Remove="Core\MVVM\**" />
+    <EmbeddedResource Remove="Core\MVVM\**" />
+    <None Remove="Core\MVVM\**" />
+    <Page Remove="Core\MVVM\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Grobund.DataAccess\Grobund.DataAccess.csproj" />
-    <ProjectReference Include="..\Grobund.Data\Grobund.Data.csproj" />
+    <ProjectReference Include="..\GrobundDB\GrobundDB.sqlproj" />
+    <ProjectReference Include="..\GrobundLibrary\GrobundLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Models\" />
+    <Folder Include="Fonts\" />
   </ItemGroup>
 
 </Project>
