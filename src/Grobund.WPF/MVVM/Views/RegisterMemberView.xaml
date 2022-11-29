@@ -40,6 +40,7 @@
                    Foreground="White" 
                    TextAlignment="Justify"  />
         <TextBox x:Name="firstNameText" 
+                 Text="{Binding Member.FirstName}"
                  Grid.Column="2" 
                  Grid.Row="2" 
                  MinWidth="250" 
@@ -53,6 +54,7 @@
                    Text="Efternavn" 
                    Foreground="White"/>
         <TextBox x:Name="lastNameText" 
+                 Text="{Binding Member.LastName}"
                  Grid.Column="2" 
                  Grid.Row="3" 
                  MinWidth="250" 
@@ -65,6 +67,7 @@
                    Text="Email" 
                    Foreground="White"/>
         <TextBox x:Name="emailText" 
+                 Text="{Binding Member.Email}"
                  Grid.Column="2" 
                  Grid.Row="4" 
                  MinWidth="250" 
@@ -76,7 +79,8 @@
                    FontSize="24" 
                    Text="Telefon Nummer" 
                    Foreground="White"/>
-        <TextBox x:Name="phoneNumberText" 
+        <TextBox x:Name="phoneNumberText"
+                 Text="{Binding Member.PhoneNumber}"
                  Grid.Column="2" 
                  Grid.Row="5" 
                  MinWidth="250" 
@@ -84,12 +88,13 @@
                  MaxHeight="24"/>
 
         <Button x:Name="registerMemberSubmitButton" 
+                Command="{Binding SaveMemberCommand}"
                 Content="Registrer" 
                 Grid.Column="2" 
                 Grid.Row="6" 
                 Margin="20,20,0,20"
                 Width="150"
-                HorizontalAlignment="Right" Click="registerMemberSubmitButton_Click"/>
+                HorizontalAlignment="Right"/>
 
     </Grid>
 </UserControl>
