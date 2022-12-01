@@ -1,4 +1,5 @@
-﻿using GrobundLibrary.Models;
+﻿using Grobund.Data.Models;
+using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace GrobundLibrary.DataAccess
 {
     public interface IDataConnection
     {
-        MemberModel CreateMember(MemberModel memberModel);
+        Member CreateMember(Member memberModel);
     }
 }

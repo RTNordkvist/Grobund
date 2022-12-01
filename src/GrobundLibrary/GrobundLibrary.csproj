@@ -12,4 +12,9 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Grobund.DataAccess\Grobund.DataAccess.csproj" />
+    <ProjectReference Include="..\Grobund.Data\Grobund.Data.csproj" />
+  </ItemGroup>
+
 </Project>

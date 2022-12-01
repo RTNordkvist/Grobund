@@ -8,7 +8,7 @@ namespace GrobundLibrary.Models
 {
     public class MemberModel
     {
-        //TODO - Tilfoj de ekstra felter lar naevnte
+
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

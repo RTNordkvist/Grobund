@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Grobund.Data.Models;
 
 namespace Grobund.WPF.MVVM.ViewModels
 {
@@ -38,9 +39,20 @@ namespace Grobund.WPF.MVVM.ViewModels
         {
             try
             {
-                if (ValidateMemberForm(Member.FirstName, Member.LastName, Member.Email, Member.PhoneNumber))
+                if (ValidateMemberForm(Member.Name, Member.Email, Member.PhoneNumber))
                 {
-                    var member = new MemberModel(Member.FirstName, Member.LastName, Member.Email, Member.PhoneNumber);
+                    var member = new Member(Member.Name,
+                        Member.Email,
+                        Member.PhoneNumber,
+                        Member.MobileNumber,
+                        Member.Registered,
+                        Member.Address1,
+                        Member.Address2,
+                        Member.City,
+                        Member.PostalCode,
+                        Member.Country,
+                        Member.UserCertificate,
+                        Member.LandCertificate);
 
                     foreach (IDataConnection db in GlobalConfig.Connections)
                     {
@@ -62,7 +74,8 @@ namespace Grobund.WPF.MVVM.ViewModels
         }
 
         //TODO - implement validation logic for member registration
-        public static bool ValidateMemberForm(string firstName, string lastName, string email, string phoneNumber)
+        //TODO - Make it validate all properties
+        public static bool ValidateMemberForm(string Name, string email, string phoneNumber)
         {
             bool isValid = true;
 
