@@ -15,6 +15,8 @@ namespace GrobundLibrary.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
+        public MemberModel() { }
+
         public MemberModel(string firstName, string lastName, string email, string phoneNumber)
         {
             FirstName = firstName;

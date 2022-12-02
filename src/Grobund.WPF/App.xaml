@@ -19,7 +19,11 @@
             <DataTemplate DataType="{x:Type viewModel:RegisterMemberViewModel}" >
                 <view:RegisterMemberView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModel:MemberInfoViewModel}" >
+                <view:MemberInfoView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

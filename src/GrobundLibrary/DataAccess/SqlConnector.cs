@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace GrobundLibrary.DataAccess
 
         public MemberModel CreateMember(MemberModel memberModel)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("GrobundDB")))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
                 p.Add("@FirstName", memberModel.FirstName);
@@ -35,9 +36,26 @@ namespace GrobundLibrary.DataAccess
                 memberModel.Id = p.Get<int>("@id");
 
                 return memberModel;
-
             }
         }
 
+        /// <summary>
+        /// Gets a member from id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>The member information </returns>
+        public MemberModel GetMember(int id)
+        {
+            string query = "SELECT * FROM Members WHERE Id = @id";
+
+            var p = new DynamicParameters();
+            p.Add("@id", id);
+
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var member = connection.QueryFirstOrDefault<MemberModel>(query, p, commandType: CommandType.Text);
+                return member;
+            }
+        }
     }
 }

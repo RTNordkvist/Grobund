@@ -1,4 +1,5 @@
 ﻿using Grobund.WPF.Core;
+using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
 
+		public MemberInfoViewModel MemberInfoVM { get; set; }
+
 		private object _currentView;
 
 		public object CurrentView
@@ -29,8 +32,17 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			RegisterMemberVM = new RegisterMemberViewModel();
-			CurrentView = HomeVM;
+			MemberInfoVM = new MemberInfoViewModel();
+			RegisterMemberVM = new RegisterMemberViewModel()
+			{
+				NavigateToMemberInfoCommand = new RelayCommand(o => 
+				{
+					MemberInfoVM.LoadMember(((MemberModel)o).Id);
+					CurrentView = MemberInfoVM;
+				})
+			};
+
+            CurrentView = HomeVM;
 
 			HomeViewCommand = new RelayCommand(o =>
 			{

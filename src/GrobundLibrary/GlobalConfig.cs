@@ -10,16 +10,14 @@ namespace GrobundLibrary
 {
     public static class GlobalConfig
     {
-        public static List<IDataConnection> Connections { get; private set; } = new List<IDataConnection>();
-
-        public static void InitializeConnection(IDataConnection connection)
-        {
-            Connections.Add(connection);
-        }
-
-        public static string CnnString(string name)
+        public static string GetConnectionString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
+
+        public static string GetConnectionString()
+        {
+            return GetConnectionString("GrobundDB");
         }
     }
 }

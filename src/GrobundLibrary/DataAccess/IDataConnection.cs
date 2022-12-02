@@ -10,5 +10,7 @@ namespace GrobundLibrary.DataAccess
     public interface IDataConnection
     {
         MemberModel CreateMember(MemberModel memberModel);
+
+        MemberModel GetMember(int id);
     }
 }
