@@ -1,4 +1,5 @@
-﻿using Grobund.WPF.Core;
+﻿using Grobund.DataAccess.Repositories;
+using Grobund.WPF.Core;
 using Grobund.WPF.MVVM.ViewModels.EntityViewModels;
 using GrobundLibrary.DataAccess;
 using System;
@@ -30,9 +31,9 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public void LoadMember(int id)
         {
-            var db = new SqlConnector();
+            var db = new MemberRepository();
 
-            var member = db.GetMember(id);
+            var member = db.ReadById(id);
 
             if(member == null)
             {

@@ -7,7 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.WPF", "Grobund.WPF\
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "GrobundDB", "GrobundDB\GrobundDB.sqlproj", "{011C958B-43F3-4A8D-9DA7-9D2036A22836}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrobundLibrary", "GrobundLibrary\GrobundLibrary.csproj", "{3DCB5AA4-BE32-4CA9-8F16-652928284C22}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrobundLibrary", "GrobundLibrary\GrobundLibrary.csproj", "{3DCB5AA4-BE32-4CA9-8F16-652928284C22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.Data", "Grobund.Data\Grobund.Data.csproj", "{59511E93-93E0-4548-8F72-FB34AD13D114}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.DataAccess", "Grobund.DataAccess\Grobund.DataAccess.csproj", "{169A08ED-834E-4EB1-9751-163F43EF58A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +33,14 @@ Global
 		{3DCB5AA4-BE32-4CA9-8F16-652928284C22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3DCB5AA4-BE32-4CA9-8F16-652928284C22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3DCB5AA4-BE32-4CA9-8F16-652928284C22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59511E93-93E0-4548-8F72-FB34AD13D114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59511E93-93E0-4548-8F72-FB34AD13D114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59511E93-93E0-4548-8F72-FB34AD13D114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59511E93-93E0-4548-8F72-FB34AD13D114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{169A08ED-834E-4EB1-9751-163F43EF58A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169A08ED-834E-4EB1-9751-163F43EF58A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169A08ED-834E-4EB1-9751-163F43EF58A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169A08ED-834E-4EB1-9751-163F43EF58A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

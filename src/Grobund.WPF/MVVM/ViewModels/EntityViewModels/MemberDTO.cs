@@ -1,4 +1,5 @@
-﻿using GrobundLibrary.Models;
+﻿using Grobund.Data.Models;
+using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
     {
         public MemberDTO() { }
 
-        public MemberDTO(MemberModel member)
+        public MemberDTO(Member member)
         {
             Id = member.Id;
             FirstName = member.FirstName;

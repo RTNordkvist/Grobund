@@ -1,26 +1,48 @@
 ﻿using Grobund.Data.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using Dapper;
 
 namespace Grobund.DataAccess.Repositories
 {
-    public class MemberRepository
+    public class MemberRepository : IRepository<Member>
     {
-        private readonly string connectionString;
-
-        public MemberRepository(string connectionString)
+        public int Create(Member member)
         {
-            this.connectionString = connectionString;
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var p = new DynamicParameters();
+                p.Add("@FirstName", member.FirstName);
+                p.Add("@LastName", member.LastName);
+                p.Add("@Email", member.Email);
+                p.Add("@PhoneNumber", member.PhoneNumber);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spMembers_Insert", p, commandType: CommandType.StoredProcedure);
+
+                member.Id = p.Get<int>("@id");
+
+                return member.Id;
+            }
         }
 
-        public int AddMember(Member member)
+        public Member ReadById(int id)
         {
-            // TO DO: Insert code block to save new member in database
+            string query = "SELECT * FROM Members WHERE Id = @id";
 
-            return member.Id;
+            var p = new DynamicParameters();
+            p.Add("@id", id);
+
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var member = connection.QueryFirstOrDefault<Member>(query, p, commandType: CommandType.Text);
+                return member;
+            }
         }
     }
 }
