@@ -9,7 +9,7 @@ namespace Grobund.DataAccess.Repositories
 {
     public interface IRepository<T>
     {
-        int Create(Member model);
+        int Create(T model);
 
         T ReadById(int id);
     }
