@@ -10,43 +10,33 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
 {
     public class MemberDTO : BaseDTO
     {
-        public MemberDTO() { }
+        public MemberDTO() 
+        {
+            Address = new AddressDTO();
+        }
 
         public MemberDTO(Member member)
         {
             Id = member.Id;
-            FirstName = member.FirstName;
-            LastName = member.LastName;
+            Name = member.Name;
             Email = member.Email;
             PhoneNumber = member.PhoneNumber;
+            MobileNumber = member.MobileNumber;
+            Address = new AddressDTO(member.Adress);
         }
 
         public int Id { get; set; }
 
-        private string _firstName;
-        public string FirstName
+        private string _name;
+        public string Name
         {
-            get { return _firstName; }
+            get { return _name; }
             set
             {
-                if (FirstName != value)
+                if (Name != value)
                 {
-                    _firstName = value;
-                    OnPropertyChanged(nameof(FirstName));
-                }
-            }
-        }
-
-        private string _lastName;
-        public string LastName
-        {
-            get { return _lastName; }
-            set
-            {
-                if (LastName != value)
-                {
-                    _lastName = value;
-                    OnPropertyChanged(nameof(LastName));
+                    _name = value;
+                    OnPropertyChanged(nameof(Name));
                 }
             }
         }
@@ -75,6 +65,47 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
                 {
                     _phoneNumber = value;
                     OnPropertyChanged(nameof(PhoneNumber));
+                }
+            }
+        }
+
+        private string _mobileNumber;
+        public string MobileNumber
+        {
+            get { return _mobileNumber; }
+            set
+            {
+                if (MobileNumber != value)
+                {
+                    _mobileNumber = value;
+                    OnPropertyChanged(nameof(MobileNumber));
+                }
+            }
+        }
+
+        private DateTime _registered;
+
+        public DateTime Registered
+        {
+            get { return _registered; }
+            set 
+            { 
+                _registered = value;
+                OnPropertyChanged(nameof(Registered));
+            }
+        }
+
+
+        private AddressDTO _address;
+        public AddressDTO Address
+        {
+            get { return _address; }
+            set
+            {
+                if (Address != value)
+                {
+                    _address = value;
+                    OnPropertyChanged(nameof(Address));
                 }
             }
         }

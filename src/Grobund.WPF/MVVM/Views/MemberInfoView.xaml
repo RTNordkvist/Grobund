@@ -34,24 +34,11 @@
         <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Medlemsinformation" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
 
         <TextBlock Grid.Column="1" 
-                   Grid.Row="2" 
-                   FontSize="24" 
-                   Text="Fornavn" 
-                   Foreground="White" 
-                   TextAlignment="Justify"  />
-        <TextBlock Text="{Binding Member.FirstName}"
-                 Grid.Column="2" 
-                 Grid.Row="2" 
-                 FontSize="24" 
-                 Foreground="White" 
-                 Margin="20,0,0,0" />
-
-        <TextBlock Grid.Column="1" 
                    Grid.Row="3" 
                    FontSize="24" 
-                   Text="Efternavn" 
+                   Text="Navn" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.LastName}"
+        <TextBlock Text="{Binding Member.Name}"
                  Grid.Column="2" 
                  Grid.Row="3" 
                  FontSize="24" 

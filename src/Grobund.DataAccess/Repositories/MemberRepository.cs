@@ -17,10 +17,11 @@ namespace Grobund.DataAccess.Repositories
             using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
-                p.Add("@FirstName", member.FirstName);
-                p.Add("@LastName", member.LastName);
+                p.Add("@Name", member.Name);
                 p.Add("@Email", member.Email);
                 p.Add("@PhoneNumber", member.PhoneNumber);
+                //p.Add("@MobileNumber", member.MobileNumber); TODO add to database
+                //p.Add("@Registered", DateTime.Now); TODO add to database
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spMembers_Insert", p, commandType: CommandType.StoredProcedure);

@@ -1,5 +1,5 @@
-﻿using Grobund.WPF.Core;
-using GrobundLibrary.Models;
+﻿using Grobund.Data.Models;
+using Grobund.WPF.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +37,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
 				{
-					MemberInfoVM.LoadMember(((MemberModel)o).Id);
+					MemberInfoVM.LoadMember(((Member)o).Id);
 					CurrentView = MemberInfoVM;
 				})
 			};

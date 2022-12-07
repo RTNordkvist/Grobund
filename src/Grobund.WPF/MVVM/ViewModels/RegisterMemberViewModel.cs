@@ -43,15 +43,17 @@ namespace Grobund.WPF.MVVM.ViewModels
         {
             try
             {
-                if (ValidateMemberForm(Member.FirstName, Member.LastName, Member.Email, Member.PhoneNumber))
+                if (ValidateMemberForm(Member.Name, Member.Email, Member.PhoneNumber))
                 {
-                    var member = new Member()
-                    {
-                        FirstName = Member.FirstName,
-                        LastName = Member.LastName,
-                        Email = Member.Email,
-                        PhoneNumber = Member.PhoneNumber
-                    };
+                    var member = new Member(Member.Name, Member.Email, Member.PhoneNumber, Member.MobileNumber,
+                        new Address
+                        {
+                            Address1 = Member.Address.Address1,
+                            Address2 = Member.Address.Address2,
+                            PostalCode = Member.Address.PostalCode,
+                            City = Member.Address.City,
+                            Country = Member.Address.Country
+                        });
 
                     var db = new MemberRepository();
                     //saves member in db
@@ -63,31 +65,21 @@ namespace Grobund.WPF.MVVM.ViewModels
                     //Clearing forms
                     Member = new MemberDTO();
 
-                    NavigateToMemberInfoCommand.Execute(new MemberModel { Id = member.Id});
+                    NavigateToMemberInfoCommand.Execute(new Member { Id = member.Id});
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 throw new Exception("The member already exist");
             }
         }
 
         //TODO - implement validation logic for member registration
-        public static bool ValidateMemberForm(string firstName, string lastName, string email, string phoneNumber)
+        public static bool ValidateMemberForm(string name, string email, string phoneNumber)
         {
             bool isValid = true;
 
             return isValid;
-        }
-
-        private bool validateFirstName(string firstName)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool validateLastName(string lastName)
-        {
-            throw new NotImplementedException();
         }
 
         private bool validateEmail(string email)
