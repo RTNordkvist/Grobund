@@ -29,26 +29,6 @@ namespace Grobund.WPF.MVVM.Views
         {
             InitializeComponent();
         }
-
-        //private void registerMemberSubmitButton_Click(object sender, RoutedEventArgs e)
-        //{
-
-        //    //TODO - Move this to a mehtod in registerMemberViewModel
-        //    if (RegisterMemberViewModel.ValidateMemberForm(firstNameText.Text, lastNameText.Text, emailText.Text, phoneNumberText.Text))
-        //    {
-        //        MemberModel memberModel = new MemberModel(firstNameText.Text, lastNameText.Text, emailText.Text, phoneNumberText.Text);
-        //        foreach (IDataConnection db in GlobalConfig.Connections)
-        //        {
-        //            //show message box with the member id
-        //            MessageBox.Show(db.CreateMember(memberModel).Id.ToString());
-        //        }
-                
-        //        //Clearing forms
-        //        firstNameText.Text = "";
-        //        lastNameText.Text = "";
-        //        emailText.Text = "";
-        //        phoneNumberText.Text = "";
-        //    }
-        //}
+        
     }
 }

@@ -11,16 +11,16 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
     {
 
         public AddressDTO() { }
-        public AddressDTO(Address adress)
+        public AddressDTO(Address address)
         {
-            if (adress != null)
+            if (address != null)
             {
-                Id = adress.Id;
-                Address1 = adress.Address1;
-                Address2 = adress.Address2;
-                PostalCode = adress.PostalCode;
-                City = adress.City;
-                Country = adress.Country;
+               // Id = address.Id;
+                Address1 = address.Address1;
+                Address2 = address.Address2;
+                PostalCode = address.PostalCode;
+                City = address.City;
+                Country = address.Country;
             }
         }
 

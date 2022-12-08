@@ -98,7 +98,7 @@
                    Text="Adresse 1" 
                    Foreground="White"/>
         <TextBox x:Name="address1Text"
-                 Text="{Binding Member.Adress.Adress1}"
+                 Text="{Binding Member.Address.Address1}"
                  Grid.Column="2" 
                  Grid.Row="6" 
                  MinWidth="250" 
@@ -111,7 +111,7 @@
                    Text="Adresse 2" 
                    Foreground="White"/>
         <TextBox x:Name="address2Text"
-                 Text="{Binding Member.Adress.Adress2}"
+                 Text="{Binding Member.Address.Address2}"
                  Grid.Column="2" 
                  Grid.Row="7" 
                  MinWidth="250" 
@@ -124,7 +124,7 @@
                    Text="Postnummer" 
                    Foreground="White"/>
         <TextBox x:Name="postalCodeText"
-                 Text="{Binding Member.Adress.PostalCode}"
+                 Text="{Binding Member.Address.PostalCode}"
                  Grid.Column="2" 
                  Grid.Row="8" 
                  MinWidth="250" 
@@ -137,7 +137,7 @@
                    Text="By" 
                    Foreground="White"/>
         <TextBox x:Name="cityText"
-                 Text="{Binding Member.Adress.City}"
+                 Text="{Binding Member.Address.City}"
                  Grid.Column="2" 
                  Grid.Row="9" 
                  MinWidth="250" 
@@ -150,7 +150,7 @@
                    Text="Land" 
                    Foreground="White"/>
         <TextBox x:Name="contryText"
-                 Text="{Binding Member.Adress.Country}"
+                 Text="{Binding Member.Address.Country}"
                  Grid.Column="2" 
                  Grid.Row="10" 
                  MinWidth="250" 

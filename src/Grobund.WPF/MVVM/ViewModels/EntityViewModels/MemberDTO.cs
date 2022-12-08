@@ -22,7 +22,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             Email = member.Email;
             PhoneNumber = member.PhoneNumber;
             MobileNumber = member.MobileNumber;
-            Address = new AddressDTO(member.Adress);
+            Address = new AddressDTO(member.Address);
         }
 
         public int Id { get; set; }

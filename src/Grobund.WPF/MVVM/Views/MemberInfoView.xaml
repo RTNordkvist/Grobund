@@ -27,6 +27,12 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -35,38 +41,134 @@
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="3" 
-                   FontSize="24" 
+                   FontSize="20" 
+                   Text="ID" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Id}"
+                 Grid.Column="2" 
+                 Grid.Row="3" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+        
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="4" 
+                   FontSize="20" 
                    Text="Navn" 
                    Foreground="White"/>
         <TextBlock Text="{Binding Member.Name}"
                  Grid.Column="2" 
-                 Grid.Row="3" 
-                 FontSize="24" 
-                 Foreground="White" 
-                 Margin="20,0,0,0" />
-
-        <TextBlock Grid.Column="1" 
-                   Grid.Row="4" 
-                   FontSize="24" 
-                   Text="Email" 
-                   Foreground="White"/>
-        <TextBlock Text="{Binding Member.Email}"
-                 Grid.Column="2" 
                  Grid.Row="4" 
-                 FontSize="24" 
+                 FontSize="20" 
                  Foreground="White" 
                  Margin="20,0,0,0" />
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="5" 
-                   FontSize="24" 
+                   FontSize="20" 
+                   Text="Email" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Email}"
+                 Grid.Column="2" 
+                 Grid.Row="5" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="6" 
+                   FontSize="20" 
                    Text="Telefon Nummer" 
                    Foreground="White"/>
         <TextBlock Text="{Binding Member.PhoneNumber}"
                  Grid.Column="2" 
-                 Grid.Row="5" 
-                 FontSize="24" 
+                 Grid.Row="6" 
+                 FontSize="20" 
                  Foreground="White" 
+                 Margin="20,0,0,0" />
+        
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="7" 
+                   FontSize="20" 
+                   Text="Mobil Nummer" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.MobileNumber}"
+                 Grid.Column="2" 
+                 Grid.Row="7" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="8" 
+                   FontSize="20" 
+                   Text="Adresse 1" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Address.Address1}"
+                 Grid.Column="2" 
+                 Grid.Row="8" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="9" 
+                   FontSize="20" 
+                   Text="Adresse 2" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Address.Address2}"
+                 Grid.Column="2" 
+                 Grid.Row="9" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="10" 
+                   FontSize="20" 
+                   Text="Postnummer" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Address.PostalCode}"
+                 Grid.Column="2" 
+                 Grid.Row="10" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="11" 
+                   FontSize="20" 
+                   Text="By" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Address.City}"
+                 Grid.Column="2" 
+                 Grid.Row="11" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="12" 
+                   FontSize="20" 
+                   Text="Land" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Address.Country}"
+                 Grid.Column="2" 
+                 Grid.Row="12" 
+                 FontSize="20" 
+                 Foreground="White" 
+                 Margin="20,0,0,0" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="13" 
+                   FontSize="20" 
+                   Text="Registreret" 
+                   Foreground="White"/>
+        <TextBlock Text="{Binding Member.Registered}"
+                 Grid.Column="2" 
+                 Grid.Row="13" 
+                 FontSize="20" 
+                 Foreground="White"
                  Margin="20,0,0,0" />
     </Grid>
 </UserControl>

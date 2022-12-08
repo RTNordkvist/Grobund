@@ -43,24 +43,20 @@ namespace Grobund.WPF.MVVM.ViewModels
         {
             try
             {
+
                 if (ValidateMemberForm(Member.Name, Member.Email, Member.PhoneNumber))
                 {
+
+                    var address = new Address(Member.Address.Address1, Member.Address.Address2, Member.Address.PostalCode, Member.Address.City, Member.Address.Country);
                     var member = new Member(Member.Name, Member.Email, Member.PhoneNumber, Member.MobileNumber,
-                        new Address
-                        {
-                            Address1 = Member.Address.Address1,
-                            Address2 = Member.Address.Address2,
-                            PostalCode = Member.Address.PostalCode,
-                            City = Member.Address.City,
-                            Country = Member.Address.Country
-                        });
+                        address);
 
                     var db = new MemberRepository();
                     //saves member in db
                     var id = db.Create(member);
 
                     //show message box with the member id
-                    MessageBox.Show(id.ToString());
+                    //MessageBox.Show(id.ToString());
 
                     //Clearing forms
                     Member = new MemberDTO();

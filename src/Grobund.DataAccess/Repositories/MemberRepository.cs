@@ -14,17 +14,27 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Member member)
         {
+            string query = "INSERT INTO dbo.members " +
+                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
+                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country, @Registered)" +
+                " SELECT @id = SCOPE_IDENTITY();";
+
             using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
                 p.Add("@Name", member.Name);
                 p.Add("@Email", member.Email);
                 p.Add("@PhoneNumber", member.PhoneNumber);
-                //p.Add("@MobileNumber", member.MobileNumber); TODO add to database
-                //p.Add("@Registered", DateTime.Now); TODO add to database
+                p.Add("@MobileNumber", member.MobileNumber);
+                p.Add("@Address1", member.Address.Address1);
+                p.Add("@Address2", member.Address.Address2);
+                p.Add("@PostalCode", member.Address.PostalCode);
+                p.Add("@City", member.Address.City);
+                p.Add("@Country", member.Address.Country);
+                p.Add("@Registered", DateTime.Now);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Execute("dbo.spMembers_Insert", p, commandType: CommandType.StoredProcedure);
+                connection.Execute(query, p, commandType: CommandType.Text);
 
                 member.Id = p.Get<int>("@id");
 

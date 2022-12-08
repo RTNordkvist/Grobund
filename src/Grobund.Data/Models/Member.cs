@@ -15,7 +15,7 @@ namespace Grobund.Data.Models
         public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
         public DateTime Registered { get; set; }
-        public Address Adress { get; set; }
+        public Address Address { get; set; }
 
         public Member() {}
 
@@ -29,14 +29,15 @@ namespace Grobund.Data.Models
             Email = email;
             PhoneNumber = phoneNumber;
             MobileNumber = mobileNumber;
-            Adress = new Address
-            {
-                Address1 = address.Address1,
-                Address2 = address.Address2,
-                City = address.City,
-                PostalCode = address.PostalCode,
-                Country = address.Country
-            };
+            //Address = new Address
+            //{
+            //    Address1 = address.Address1,
+            //    Address2 = address.Address2,
+            //    City = address.City,
+            //    PostalCode = address.PostalCode,
+            //    Country = address.Country
+            //};
+            Address = address;
     }
     }
 }
