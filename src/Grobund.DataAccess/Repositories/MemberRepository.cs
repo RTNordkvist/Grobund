@@ -26,11 +26,11 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@Email", member.Email);
                 p.Add("@PhoneNumber", member.PhoneNumber);
                 p.Add("@MobileNumber", member.MobileNumber);
-                p.Add("@Address1", member.Address.Address1);
-                p.Add("@Address2", member.Address.Address2);
-                p.Add("@PostalCode", member.Address.PostalCode);
-                p.Add("@City", member.Address.City);
-                p.Add("@Country", member.Address.Country);
+                p.Add("@Address1", member.Address1);
+                p.Add("@Address2", member.Address2);
+                p.Add("@PostalCode", member.PostalCode);
+                p.Add("@City", member.City);
+                p.Add("@Country", member.Country);
                 p.Add("@Registered", DateTime.Now);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 

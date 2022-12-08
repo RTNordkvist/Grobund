@@ -104,7 +104,7 @@
                    FontSize="20" 
                    Text="Adresse 1" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.Address.Address1}"
+        <TextBlock Text="{Binding Member.Address1}"
                  Grid.Column="2" 
                  Grid.Row="8" 
                  FontSize="20" 
@@ -116,7 +116,7 @@
                    FontSize="20" 
                    Text="Adresse 2" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.Address.Address2}"
+        <TextBlock Text="{Binding Member.Address2}"
                  Grid.Column="2" 
                  Grid.Row="9" 
                  FontSize="20" 
@@ -128,7 +128,7 @@
                    FontSize="20" 
                    Text="Postnummer" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.Address.PostalCode}"
+        <TextBlock Text="{Binding Member.PostalCode}"
                  Grid.Column="2" 
                  Grid.Row="10" 
                  FontSize="20" 
@@ -140,7 +140,7 @@
                    FontSize="20" 
                    Text="By" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.Address.City}"
+        <TextBlock Text="{Binding Member.City}"
                  Grid.Column="2" 
                  Grid.Row="11" 
                  FontSize="20" 
@@ -152,7 +152,7 @@
                    FontSize="20" 
                    Text="Land" 
                    Foreground="White"/>
-        <TextBlock Text="{Binding Member.Address.Country}"
+        <TextBlock Text="{Binding Member.Country}"
                  Grid.Column="2" 
                  Grid.Row="12" 
                  FontSize="20" 

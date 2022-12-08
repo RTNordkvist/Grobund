@@ -14,30 +14,27 @@ namespace Grobund.Data.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string MobileNumber { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string City { get; set; }
+        public string PostalCode { get; set; }
+        public string Country { get; set; }
         public DateTime Registered { get; set; }
-        public Address Address { get; set; }
 
         public Member() {}
 
-        public Member(string name,
-            string email,
-            string phoneNumber,
-            string mobileNumber,
-            Address address)
+        public Member(string name, string email, string phoneNumber, string mobileNumber, 
+                        string address1, string address2, string city, string postalCode, string country)
         {
             Name = name;
             Email = email;
             PhoneNumber = phoneNumber;
             MobileNumber = mobileNumber;
-            //Address = new Address
-            //{
-            //    Address1 = address.Address1,
-            //    Address2 = address.Address2,
-            //    City = address.City,
-            //    PostalCode = address.PostalCode,
-            //    Country = address.Country
-            //};
-            Address = address;
-    }
+            Address1 = address1;
+            Address2 = address2;
+            City = city;
+            PostalCode = postalCode;
+            Country = country;
+        }
     }
 }

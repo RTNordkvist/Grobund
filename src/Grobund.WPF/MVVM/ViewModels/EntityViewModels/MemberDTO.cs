@@ -3,6 +3,7 @@ using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,7 +13,6 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
     {
         public MemberDTO() 
         {
-            Address = new AddressDTO();
         }
 
         public MemberDTO(Member member)
@@ -22,7 +22,11 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             Email = member.Email;
             PhoneNumber = member.PhoneNumber;
             MobileNumber = member.MobileNumber;
-            Address = new AddressDTO(member.Address);
+            Address1 = member.Address1;
+            Address2 = member.Address2;
+            PostalCode = member.PostalCode;
+            City = member.City;
+            Country = member.Country;
         }
 
         public int Id { get; set; }
@@ -83,6 +87,80 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             }
         }
 
+        private string _address1;
+        public string Address1
+        {
+            get { return _address1; }
+            set
+            {
+                if (Address1 != value)
+                {
+                    _address1 = value;
+                    OnPropertyChanged(nameof(Address1));
+                }
+            }
+        }
+
+        private string _address2;
+
+        public string Address2
+        {
+            get { return _address2; }
+            set
+            {
+                if (Address2 != value)
+                {
+                    _address2 = value;
+                    OnPropertyChanged(nameof(Address2));
+                }
+            }
+        }
+
+        private string _postalCode;
+
+        public string PostalCode
+        {
+            get { return _postalCode; }
+            set
+            {
+                if (PostalCode != value)
+                {
+                    _postalCode = value;
+                    OnPropertyChanged(nameof(PostalCode));
+                }
+            }
+        }
+
+        private string _city;
+
+        public string City
+        {
+            get { return _city; }
+            set
+            {
+                if (City != value)
+                {
+                    _city = value;
+                    OnPropertyChanged(nameof(City));
+                }
+            }
+        }
+
+        private string _country;
+
+        public string Country
+        {
+            get { return _country; }
+            set
+            {
+                if (Country != value)
+                {
+                    _country = value;
+                    OnPropertyChanged(nameof(Country));
+                }
+            }
+        }
+
         private DateTime _registered;
 
         public DateTime Registered
@@ -92,21 +170,6 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             { 
                 _registered = value;
                 OnPropertyChanged(nameof(Registered));
-            }
-        }
-
-
-        private AddressDTO _address;
-        public AddressDTO Address
-        {
-            get { return _address; }
-            set
-            {
-                if (Address != value)
-                {
-                    _address = value;
-                    OnPropertyChanged(nameof(Address));
-                }
             }
         }
     }

@@ -46,10 +46,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 
                 if (ValidateMemberForm(Member.Name, Member.Email, Member.PhoneNumber))
                 {
-
-                    var address = new Address(Member.Address.Address1, Member.Address.Address2, Member.Address.PostalCode, Member.Address.City, Member.Address.Country);
-                    var member = new Member(Member.Name, Member.Email, Member.PhoneNumber, Member.MobileNumber,
-                        address);
+                    var member = new Member(Member.Name, Member.Email, Member.PhoneNumber, Member.MobileNumber, 
+                                            Member.Address1, Member.Address2, Member.PostalCode, Member.City, Member.Country);
 
                     var db = new MemberRepository();
                     //saves member in db

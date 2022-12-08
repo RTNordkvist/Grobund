@@ -68,5 +68,6 @@
   <ItemGroup>
     <Build Include="dbo\Tables\Members.sql" />
     <Build Include="dbo\StoredProcedures\spMembers_Insert.sql" />
+    <Build Include="Addresses.sql" />
   </ItemGroup>
 </Project>
