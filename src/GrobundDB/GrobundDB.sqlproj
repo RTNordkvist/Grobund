@@ -61,12 +61,17 @@
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="publishLocation\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\GrobundDB.publish.xml" />
+    <None Include="publishLocation\GrobundDB.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Members.sql" />
     <Build Include="dbo\StoredProcedures\spMembers_Insert.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="GrobundDB.refactorlog" />
   </ItemGroup>
 </Project>

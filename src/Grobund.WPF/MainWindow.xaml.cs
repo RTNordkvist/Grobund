@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using GrobundLibrary;
-using GrobundLibrary.DataAccess;
+using Grobund.Data;
+using Grobund.DataAccess;
+using Grobund.DataAccess.Repositories;
 
 namespace Grobund.WPF
 {
@@ -25,7 +26,7 @@ namespace Grobund.WPF
         public MainWindow()
         {
             //initialize data connections
-            GlobalConfig.InitializeConnection(new SqlConnector());
+            GlobalConfig.InitializeConnection(new MemberRepository());
             InitializeComponent();
         }
 

@@ -25,6 +25,8 @@ namespace Grobund.Data.Models
 
 
 
+        public Member() { }
+
         public Member(string name, 
             string email, 
             string phoneNumber, 

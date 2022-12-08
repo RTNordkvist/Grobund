@@ -8,7 +8,7 @@ using GrobundLibrary.DataAccess;
 
 namespace GrobundLibrary
 {
-    public static class GlobalConfig
+    internal static class GlobalConfig
     {
         public static List<IDataConnection> Connections { get; private set; } = new List<IDataConnection>();
 
