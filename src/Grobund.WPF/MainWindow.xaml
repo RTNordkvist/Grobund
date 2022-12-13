@@ -17,7 +17,7 @@
         <viewModel:MainViewModel/>
 
     </Window.DataContext>
-    
+
     <Border Background="#272537"
             CornerRadius="10">
         <Grid>
@@ -33,7 +33,7 @@
 
 
 
-        <TextBlock Grid.Row="0" Text="Grobund" 
+            <TextBlock Grid.Row="0" Text="Grobund" 
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
                        Foreground="White"
@@ -65,6 +65,27 @@
                      Margin="5"
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}"/>
+
+            <Ellipse x:Name="Exit" Fill="Red" 
+                     Grid.Column="1" 
+                     Grid.Row="0" 
+                     Height="15" Width="15" 
+                     HorizontalAlignment="Right" 
+                     VerticalAlignment="Top" Margin="0,5,5,0" MouseLeftButtonDown="exitApp" Cursor="Hand" Focusable="True" />
+
+            <Ellipse x:Name="Minimize" Fill="Yellow" 
+                     Grid.Column="1" 
+                     Grid.Row="0" 
+                     Height="15" Width="15" 
+                     HorizontalAlignment="Right" 
+                     VerticalAlignment="Top" Margin="0,5,45,0" MouseLeftButtonDown="minimizeApp" Cursor="Hand" />
+
+            <Ellipse x:Name="Maximize" Fill="Green" 
+                     Grid.Column="1" 
+                     Grid.Row="0" 
+                     Height="15" Width="15" 
+                     HorizontalAlignment="Right" 
+                     VerticalAlignment="Top" Margin="0,5,25,0" MouseLeftButtonDown="maximizeApp" Cursor="Hand" />
 
             <!--Husk at reasearche-->
             <ContentControl Grid.Row="1"
