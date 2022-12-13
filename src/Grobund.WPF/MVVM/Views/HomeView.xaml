@@ -5,104 +5,87 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
-        <TextBlock Text="Discover"
-                   Foreground="White"
-                   FontSize="28"
-                   HorizontalAlignment="Left"
-                   Margin="0,0,0,20"/>
-        <StackPanel Orientation="Horizontal"
-                    Margin="0,0,0,10">
-            <Border Width="400"
-                    Height="200">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#5bc3ff" Offset="0.0"/>
-                        <GradientStop Color="#3aa0ff" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
+             d:DesignHeight="1000" d:DesignWidth="980"
+             Background="#1b1b1b">
 
-                <Border.Clip>
-                    <RectangleGeometry RadiusX="10"
-                                       RadiusY="10"
-                                       Rect="0,0,400,200"/>
-                </Border.Clip>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
 
-                <Grid>
-                    <StackPanel>
-                        <TextBlock Text="Word Leader&#x0a;In Global Finance" 
-                                   Foreground="White"
-                                   FontSize="28"
-                                   Margin="20,10,10,0"/>
-                        <TextBlock Text="Get started today!" 
-                                   Foreground="White"
-                                   FontSize="18"
-                                   Margin="20,10,10,0"/>
-                    </StackPanel>
+        </Grid.ColumnDefinitions>
 
-                    <Image Width="Auto"
-                           Height="Auto"
-                           Source="/Images/man.png"
-                           HorizontalAlignment="Right" RenderTransformOrigin="0.5,0.5" Margin="0,7,20,-56">
-                        <Image.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="-28.488"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Image.RenderTransform>
-                    </Image>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Hjem" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="2" 
+                   FontSize="20" 
+                   Text="Velkommen til (Grobund Program)" 
+                   Foreground="White" 
+                   TextAlignment="Justify" Grid.ColumnSpan="2" Height="32" Margin="0,0,14,0" Grid.RowSpan="1" VerticalAlignment="Top"  />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="3" 
+                   FontSize="14" 
+                   Text="Dette er et program dedikeret til at foretage ændringer i grobunds medlems database. Nedenunder er en liste over funktioner du kan udføre i dette program."
+                   Foreground="White" 
+                   TextAlignment="Left" Grid.ColumnSpan="1" Margin="0,0,50,0" Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="400" 
+                   TextWrapping="Wrap" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="5" 
+                   FontSize="14" 
+                   Text="1. Foretag registrering af medlemmer
+                   2. Opdater eller fjern medlemmer
+                   
+                   3. Foretag check på betalelse af beviser
+                   4. Foretag rykkere/betalingsforsendelse via Email
+                   (Placeholder)" 
+                   Foreground="White" 
+                   TextAlignment="Left" Grid.ColumnSpan="1" Margin="0,0,5,0" Grid.RowSpan="1" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Width="305" Height="95"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="6" 
+                   FontSize="14" 
+                   Text="Hvis du vil bruge programmet kan du trykke på de forskellige sider til venstre, de gør hvad der står beskrevet. 
+                   Hvis du vil lukke programmet kan du trykke på krydset oppe i højre hjørne."
+                   Foreground="White" 
+                   TextAlignment="Left" Grid.ColumnSpan="1" Margin="0,0,50,0" Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="390" 
+                   TextWrapping="Wrap" />
+
+        <Image x:Name="Grobund_Billede" 
+               Grid.Column="3" 
+               Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="4" 
+               Source="/Images/GrobundBaggrund.png" 
+               Stretch="UniformToFill" Height="150" UseLayoutRounding="true" Margin="0,0,7,93"/>
 
 
-                </Grid>
 
-            </Border>
-            <Border Width="200" 
-                    Height="200"
-                    CornerRadius="10"
-                    Margin="45,0,0,0">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                        <GradientStop Color="#ffc554" Offset="0.0"/>
-                        <GradientStop Color="#ffb73a" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-        </StackPanel>
-        <StackPanel>
 
-            <StackPanel.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="Margin" Value="15,0,0,0"/>
-                </Style>
-            </StackPanel.Resources>
-            
-            <TextBlock Text="Most Watched"
-                   Foreground="White"
-                   FontSize="20"
-                   HorizontalAlignment="Left"
-                   Margin="0,0,0,20"/>
-            <StackPanel Orientation="Horizontal">
-                <Border Width="150"
-                        Height="150"
-                        Background="#844eff"
-                        CornerRadius="10"
-                        Margin="0"/>
-                <Border Width="150"
-                        Height="150"
-                        Background="#4e99ff"
-                        CornerRadius="10"/>
-                <Border Width="150"
-                        Height="150"
-                        Background="#4eff91"
-                        CornerRadius="10"/>
-                <Border Width="150"
-                        Height="150"
-                        Background="#ecff4e"
-                        CornerRadius="10"/>
-            </StackPanel>
-        </StackPanel>
-    </StackPanel>
+
+
+    </Grid>
 </UserControl>
+
