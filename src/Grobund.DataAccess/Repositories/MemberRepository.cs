@@ -5,8 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
 using Dapper;
+using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -14,12 +15,12 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Member member)
         {
-            string query = "INSERT INTO dbo.members " +
-                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
-                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country, @Registered)" +
-                " SELECT @id = SCOPE_IDENTITY();";
+            string query = "INSERT INTO Members (Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
+                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country, @Registered);";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            string idQuery = "SELECT LAST_INSERT_ID();";
+
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var p = new DynamicParameters();
                 p.Add("@Name", member.Name);
@@ -35,8 +36,12 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute(query, p, commandType: CommandType.Text);
+                var id = connection.Query(idQuery);
 
-                member.Id = p.Get<int>("@id");
+
+
+               // member.Id = p.Get<int>("@id");
+                //member.Id = id.
 
                 return member.Id;
             }
@@ -44,12 +49,12 @@ namespace Grobund.DataAccess.Repositories
 
         public Member ReadById(int id)
         {
-            string query = "SELECT * FROM Members WHERE Id = @id";
+            string query = "SELECT * FROM Members WHERE id = @id";
 
             var p = new DynamicParameters();
             p.Add("@id", id);
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var member = connection.QueryFirstOrDefault<Member>(query, p, commandType: CommandType.Text);
                 return member;
