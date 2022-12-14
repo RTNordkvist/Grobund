@@ -8,9 +8,6 @@ using System.Threading.Tasks;
 using Dapper;
 using MySql.Data.MySqlClient;
 using System.Diagnostics;
-using Google.Protobuf.WellKnownTypes;
-using System.Diagnostics.Metrics;
-using System.Xml.Linq;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -18,14 +15,10 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Member member)
         {
-            //string query = "INSERT INTO Members (Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
-            //    "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country, @Registered);";
-
-            //string idQuery = "SELECT LAST_INSERT_ID();";
-
             string query = "INSERT INTO Members (Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country) " +
-                "OUTPUT INSERTED.id " +
                 "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country);";
+
+            string idQuery = "SELECT LAST_INSERT_ID();";
 
             using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
@@ -39,16 +32,17 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@PostalCode", member.PostalCode);
                 p.Add("@City", member.City);
                 p.Add("@Country", member.Country);
-                p.Add("@Registered", DateTime.Now);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-
-                //connection.Execute(query, p, commandType: CommandType.Text);
-                var id = connection.Query<int>(query, new { member.Name, member.Email, member.PhoneNumber, member.MobileNumber, member.Address1, member.Address2, member.PostalCode, member.City, member.Country});
+                //p.Add("@Registered", DateTime.Now);
+                
+                connection.Execute(query, p, commandType: CommandType.Text);
+                var id = connection.ExecuteScalar(idQuery);
+                int intId = Convert.ToInt32(id);
+                member.Id = intId;
 
 
 
                 // member.Id = p.Get<int>("@id");
-                member.Id = Convert.ToInt32(id);
+                //member.Id = id.
 
                 return member.Id;
             }

@@ -27,6 +27,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             PostalCode = member.PostalCode;
             City = member.City;
             Country = member.Country;
+            Registered= member.Registered;
         }
 
         public int Id { get; set; }
@@ -169,7 +170,6 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             set 
             { 
                 _registered = value;
-                OnPropertyChanged(nameof(Registered));
             }
         }
     }
