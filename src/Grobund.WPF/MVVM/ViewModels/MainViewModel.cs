@@ -12,17 +12,6 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 	internal class MainViewModel : ObservableObject
 	{
-		private string _registerMemberViewTitle = string.Empty;
-		public string RegisterMemberViewTitle
-		{
-			get { return _registerMemberViewTitle; }
-			set
-			{
-				_registerMemberViewTitle = value;
-				OnPropertyChanged(nameof(RegisterMemberViewTitle));
-			}
-		}
-
 
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
@@ -52,7 +41,6 @@ namespace Grobund.WPF.MVVM.ViewModels
                 NavigateToUpdateMemberCommand = new RelayCommand(o =>
                 {
                     UpdateMemberVM.LoadMember(((Member)o).Id);
-					RegisterMemberViewTitle = UpdateMemberVM.ViewTitle;
                     CurrentView = UpdateMemberVM;
                 })
             };
@@ -73,14 +61,10 @@ namespace Grobund.WPF.MVVM.ViewModels
 				CurrentView= HomeVM;
 			});
 
-            RegisterMemberViewCommand = new RelayCommand(o =>
-            {
-                RegisterMemberViewTitle = UpdateMemberVM.ViewTitle;
-                CurrentView = RegisterMemberVM;
-            });
-
-			RegisterMemberViewTitle = RegisterMemberVM.ViewTitle;
-			Debug.WriteLine(RegisterMemberViewTitle);
+			RegisterMemberViewCommand = new RelayCommand(o =>
+			{
+				CurrentView = RegisterMemberVM;
+			});
         }
 
 	}

@@ -14,7 +14,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 {
     internal class UpdateMemberViewModel : ObservableObject
     {
-        public string ViewTitle = "Opdater medlem";
+        public string ViewTitle { get; set; }
 
         private MemberDTO _member;
 
@@ -42,6 +42,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public UpdateMemberViewModel()
         {
+            ViewTitle = "Opdater medlem";
             Member = new MemberDTO();
             UpdateMember = new MemberDTO();
         }
