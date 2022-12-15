@@ -8,7 +8,10 @@
                 <ControlTemplate 
                      TargetType="Button">
                     <Button Height="{TemplateBinding Height}" 
-                            Width ="{TemplateBinding Width}" />
+                            Width ="{TemplateBinding Width}"
+                            Background="{TemplateBinding Background}"
+                            />
+                    
 
                 </ControlTemplate>
             </Setter.Value>

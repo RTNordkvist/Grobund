@@ -10,6 +10,12 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="theme/menubuttontheme.xaml"/>
                 <ResourceDictionary Source="theme/textboxtheme.xaml"/>
+                <ResourceDictionary Source="theme/windowbuttontheme.xaml"/>
+
+                <ResourceDictionary Source="images/close.png"/>
+                <ResourceDictionary Source="images/maximize.png"/>
+                <ResourceDictionary Source="images/minimize.png"/>
+                <ResourceDictionary Source="images/GrobundBaggrund.png"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}" >
