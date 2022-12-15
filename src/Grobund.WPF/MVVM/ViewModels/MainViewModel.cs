@@ -15,6 +15,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
+        public RelayCommand NavigateToUpdateCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
 
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
