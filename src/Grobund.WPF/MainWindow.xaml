@@ -55,7 +55,6 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding RegisterMemberViewCommand}"/>
-
             </StackPanel>
 
             <TextBox Width="250"
@@ -86,6 +85,14 @@
                      Height="15" Width="15" 
                      HorizontalAlignment="Right" 
                      VerticalAlignment="Top" Margin="0,5,25,0" MouseLeftButtonDown="maximizeApp" Cursor="Hand" />
+            
+            <Button  x:Name="WindowButtonTheme"
+                     Grid.Column="1"
+                     Grid.Row="0"
+                     Height="25"
+                     Width="25"
+                     Style="{StaticResource WindowButtonTheme}"
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="504,18,192,33"/>
 
             <!--Husk at reasearche-->
             <ContentControl Grid.Row="1"
