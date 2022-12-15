@@ -11,7 +11,6 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 	internal class MainViewModel : ObservableObject
 	{
-		
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
