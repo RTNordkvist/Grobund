@@ -19,7 +19,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 			set
 			{
 				_registerMemberViewTitle = value;
-				OnPropertyChanged();
+				OnPropertyChanged(nameof(RegisterMemberViewTitle));
 			}
 		}
 
