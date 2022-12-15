@@ -36,5 +36,20 @@ namespace Grobund.Data.Models
             PostalCode = postalCode;
             Country = country;
         }
+
+        public Member(int id, string name, string email, string phoneNumber, string mobileNumber,
+                        string address1, string address2, string city, string postalCode, string country)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            MobileNumber = mobileNumber;
+            Address1 = address1;
+            Address2 = address2;
+            City = city;
+            PostalCode = postalCode;
+            Country = country;
+        }
     }
 }

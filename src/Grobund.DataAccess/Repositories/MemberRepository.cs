@@ -83,9 +83,12 @@ namespace Grobund.DataAccess.Repositories
         public Member Update(Member member)
         {
             Member updatedMember = new Member();
-            string query = "INSERT INTO dbo.members (Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country) " +
-                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country);";
-
+            // update query
+            string query = "UPDATE Members " +
+                "SET Name = @Name, Email = @Email, PhoneNumber = @PhoneNumber, MobileNumber = @MobileNumber, " +
+                "Address1 = @Address1, Address2 = @Address2, PostalCode = @PostalCode, City = @City, Country = @Country " +
+                "WHERE Id = @Id";
+            
             using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
@@ -98,6 +101,7 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@PostalCode", member.PostalCode);
                 p.Add("@City", member.City);
                 p.Add("@Country", member.Country);
+                p.Add("@Id", member.Id);
 
                 connection.Execute(query, p, commandType: CommandType.Text);
 

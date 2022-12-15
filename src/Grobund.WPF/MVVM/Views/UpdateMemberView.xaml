@@ -1,0 +1,171 @@
+﻿<UserControl x:Class="Grobund.WPF.MVVM.Views.UpdateMemberView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
+             xmlns:viewModel="clr-namespace:Grobund.WPF.MVVM.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#1b1b1b">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="{Binding ViewTitle}" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="2" 
+                   FontSize="24" 
+                   Text="Navn" 
+                   Foreground="White" 
+                   TextAlignment="Justify"  />
+        <TextBox x:Name="nameText" 
+                 Text="{Binding Member.Name}"
+                 Grid.Column="2" 
+                 Grid.Row="2" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"
+                 />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="3" 
+                   FontSize="24" 
+                   Text="Email" 
+                   Foreground="White"/>
+        <TextBox x:Name="emailText" 
+                 Text="{Binding Member.Email}"
+                 Grid.Column="2" 
+                 Grid.Row="3" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="4" 
+                   FontSize="24" 
+                   Text="Telefon" 
+                   Foreground="White"/>
+        <TextBox x:Name="phoneNumberText"
+                 Text="{Binding Member.PhoneNumber}"
+                 Grid.Column="2" 
+                 Grid.Row="4" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="5" 
+                   FontSize="24" 
+                   Text="Mobiltelefon" 
+                   Foreground="White"/>
+        <TextBox x:Name="mobileNumberText"
+                 Text="{Binding Member.MobileNumber}"
+                 Grid.Column="2" 
+                 Grid.Row="5" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="6" 
+                   FontSize="24" 
+                   Text="Adresse 1" 
+                   Foreground="White"/>
+        <TextBox x:Name="address1Text"
+                 Text="{Binding Member.Address1}"
+                 Grid.Column="2" 
+                 Grid.Row="6" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="7" 
+                   FontSize="24" 
+                   Text="Adresse 2" 
+                   Foreground="White"/>
+        <TextBox x:Name="address2Text"
+                 Text="{Binding Member.Address2}"
+                 Grid.Column="2" 
+                 Grid.Row="7" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="8" 
+                   FontSize="24" 
+                   Text="Postnummer" 
+                   Foreground="White"/>
+        <TextBox x:Name="postalCodeText"
+                 Text="{Binding Member.PostalCode}"
+                 Grid.Column="2" 
+                 Grid.Row="8" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="9" 
+                   FontSize="24" 
+                   Text="By" 
+                   Foreground="White"/>
+        <TextBox x:Name="cityText"
+                 Text="{Binding Member.City}"
+                 Grid.Column="2" 
+                 Grid.Row="9" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="10" 
+                   FontSize="24" 
+                   Text="Land" 
+                   Foreground="White"/>
+        <TextBox x:Name="contryText"
+                 Text="{Binding Member.Country}"
+                 Grid.Column="2" 
+                 Grid.Row="10" 
+                 MinWidth="250" 
+                 Margin="20,0,0,0" 
+                 MaxHeight="24"/>
+
+        <Button x:Name="UpdateMemberSubmitButton" 
+                Command="{Binding UpdateMemberCommand}"
+                Content="Opdater" 
+                Grid.Column="2" 
+                Grid.Row="11" 
+                Margin="20,20,0,20"
+                Width="150"
+                HorizontalAlignment="Right"/>
+
+    </Grid>
+</UserControl>

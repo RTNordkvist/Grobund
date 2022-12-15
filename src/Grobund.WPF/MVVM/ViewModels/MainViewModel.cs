@@ -16,8 +16,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
         public RelayCommand NavigateToUpdateCommand { get; set; }
+        
         public HomeViewModel HomeVM { get; set; }
-
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
 		public MemberInfoViewModel MemberInfoVM { get; set; }
         public UpdateMemberViewModel UpdateMemberVM { get; set; }
@@ -35,9 +35,17 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			UpdateMemberVM = new UpdateMemberViewModel();
+            
+			UpdateMemberVM = new UpdateMemberViewModel()
+			{
+                NavigateToMemberInfoCommand = new RelayCommand(o =>
+                {
+                    MemberInfoVM.LoadMember(((Member)o).Id);
+                    CurrentView = MemberInfoVM;
+                })
+            };
 
-			MemberInfoVM = new MemberInfoViewModel()
+            MemberInfoVM = new MemberInfoViewModel()
 			{
                 NavigateToUpdateMemberCommand = new RelayCommand(o =>
                 {

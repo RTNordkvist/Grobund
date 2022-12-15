@@ -39,7 +39,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Medlemsinformation" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,40,20"/>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Medlemsinformation" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="3" 
@@ -174,13 +174,13 @@
                  Margin="20,0,0,0" />
 
         <Button x:Name="updateMemberSubmitButton" 
-                Command="{Binding UpdateMemberCommand}"
+                Command="{Binding ViewUpdateCommand}"
                 Content="Opdater" 
                 Grid.Column="4" 
                 Grid.Row="14"
-                Width="150"
+                Width="140"
                 Height="25"
-                Margin="20,0,20,0"
+                Margin="0,0,20,0"
                 HorizontalAlignment="Right"/>
         
         <Button x:Name="deleteMemberSubmitButton" 
@@ -188,9 +188,9 @@
                 Content="Slet" 
                 Grid.Column="5" 
                 Grid.Row="14"
-                Width="150"
+                Width="140"
                 Height="25"
-                Margin="20,0,20,0"
+                Margin="0,0,20,0"
                 HorizontalAlignment="Right"/>
 
     </Grid>
