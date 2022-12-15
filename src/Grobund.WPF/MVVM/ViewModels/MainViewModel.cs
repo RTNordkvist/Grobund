@@ -51,8 +51,14 @@ namespace Grobund.WPF.MVVM.ViewModels
                 {
                     UpdateMemberVM.LoadMember(((Member)o).Id);
                     CurrentView = UpdateMemberVM;
+                }),
+
+
+                NavigateHomeCommand = new RelayCommand(o =>
+                {
+                    CurrentView = HomeVM;
                 })
-            };
+        };
 
 			RegisterMemberVM = new RegisterMemberViewModel()
 			{
