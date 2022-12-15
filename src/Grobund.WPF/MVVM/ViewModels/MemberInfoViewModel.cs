@@ -1,4 +1,5 @@
-﻿using Grobund.DataAccess.Repositories;
+﻿using Grobund.Data.Models;
+using Grobund.DataAccess.Repositories;
 using Grobund.WPF.Core;
 using Grobund.WPF.MVVM.ViewModels.EntityViewModels;
 using GrobundLibrary.DataAccess;
@@ -24,6 +25,10 @@ namespace Grobund.WPF.MVVM.ViewModels
             }
         }
 
+        public RelayCommand DeleteMemberViewCommand { get; set; }
+
+        public RelayCommand NavigateToUpdateMemberCommand { get; set; }
+
         public MemberInfoViewModel()
         {
             Member = new MemberDTO();
@@ -41,6 +46,13 @@ namespace Grobund.WPF.MVVM.ViewModels
             }
 
             Member = new MemberDTO(member);
+        }
+
+        public Member ViewUpdateMember()
+        {
+
+
+            return new Member();
         }
     }
 }

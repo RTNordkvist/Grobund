@@ -19,6 +19,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 {
     internal class RegisterMemberViewModel : ObservableObject
     {
+        public string ViewTitle = "Registrer medlem";
+
         private MemberDTO _member;
 
         public MemberDTO Member

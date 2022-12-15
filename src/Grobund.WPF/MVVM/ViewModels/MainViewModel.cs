@@ -2,6 +2,7 @@
 using Grobund.WPF.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,15 +12,27 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 	internal class MainViewModel : ObservableObject
 	{
+		private string _registerMemberViewTitle = string.Empty;
+		public string RegisterMemberViewTitle
+		{
+			get { return _registerMemberViewTitle; }
+			set
+			{
+				_registerMemberViewTitle = value;
+				OnPropertyChanged();
+			}
+		}
+
+
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
 
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
-
 		public MemberInfoViewModel MemberInfoVM { get; set; }
+        public UpdateMemberViewModel UpdateMemberVM { get; set; }
 
-		private object _currentView;
+        private object _currentView;
 
 		public object CurrentView
 		{
@@ -32,7 +45,18 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			MemberInfoVM = new MemberInfoViewModel();
+			UpdateMemberVM = new UpdateMemberViewModel();
+
+			MemberInfoVM = new MemberInfoViewModel()
+			{
+                NavigateToUpdateMemberCommand = new RelayCommand(o =>
+                {
+                    UpdateMemberVM.LoadMember(((Member)o).Id);
+					RegisterMemberViewTitle = UpdateMemberVM.ViewTitle;
+                    CurrentView = UpdateMemberVM;
+                })
+            };
+
 			RegisterMemberVM = new RegisterMemberViewModel()
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
@@ -51,8 +75,12 @@ namespace Grobund.WPF.MVVM.ViewModels
 
             RegisterMemberViewCommand = new RelayCommand(o =>
             {
+                RegisterMemberViewTitle = UpdateMemberVM.ViewTitle;
                 CurrentView = RegisterMemberVM;
             });
+
+			RegisterMemberViewTitle = RegisterMemberVM.ViewTitle;
+			Debug.WriteLine(RegisterMemberViewTitle);
         }
 
 	}

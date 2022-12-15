@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
+             xmlns:viewModel="clr-namespace:Grobund.WPF.MVVM.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="#1b1b1b">
@@ -36,7 +37,7 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="36" Text="Registrer Medlem" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
+        <TextBlock x:Name="ViewTitle"  Grid.Column="1" Grid.Row="1" FontSize="36" Text="{Binding RegisterMemberViewTitle}" Foreground="White" Grid.ColumnSpan="2" Margin="0,0,0,20"/>
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="2" 
