@@ -70,7 +70,7 @@
                      Grid.Row="0"
                      Height="25"
                      Width="25"
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="685,10,10,40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ExitButton_Click">
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="685,10,10,40" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ExitButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/close.png"/>
                 </Button.Background>
@@ -81,7 +81,8 @@
                      Grid.Row="0"
                      Height="25"
                      Width="25"
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="655,10,40,40" Click="MaximizeButton_Click">
+                     
+                     BorderThickness="1,1,1,1" Margin="655,10,40,40" Click="MaximizeButton_Click" HorizontalAlignment="Right">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/maximize.png"/>
                 </Button.Background>
@@ -92,7 +93,7 @@
                      Grid.Row="0"
                      Height="25"
                      Width="25" 
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="625,10,70,40" Click="MinimizeButton_Click">
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="625,10,70,40" Click="MinimizeButton_Click" HorizontalAlignment="Right">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/minimize.png"/>
                 </Button.Background>

@@ -69,10 +69,5 @@ namespace Grobund.WPF
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void minimizeButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
