@@ -56,9 +56,6 @@ namespace Grobund.WPF.MVVM.ViewModels
                     //saves member in db
                     var id = db.Create(member);
 
-                    //show message box with the member id
-                    //MessageBox.Show(id.ToString());
-
                     //Clearing forms
                     Member = new MemberDTO();
 

@@ -9,6 +9,7 @@ using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Grobund.WPF.MVVM.ViewModels
 {
@@ -64,6 +65,10 @@ namespace Grobund.WPF.MVVM.ViewModels
         public bool DeleteMember()
         {
 
+            var confirmation = MessageBox.Show("Er du sikker på at du vil slette medlemmet?", "Slet medlem", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (confirmation == MessageBoxResult.Yes)
+            {
             var db = new MemberRepository();
             
 
@@ -71,12 +76,20 @@ namespace Grobund.WPF.MVVM.ViewModels
 
             if (member == null)
             {
-                return false;
+                    MessageBox.Show("Medlemmet blev ikke fundet i databasen", "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return false;
             }
 
             db.Delete(member.Id);
-            NavigateHomeCommand.Execute(null);
+
+                //TODO - Lav dette så den går tilbage til søg viewet
+                NavigateHomeCommand.Execute(null);
             return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
     }

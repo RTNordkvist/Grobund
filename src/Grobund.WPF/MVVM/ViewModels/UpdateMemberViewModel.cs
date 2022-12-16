@@ -28,18 +28,6 @@ namespace Grobund.WPF.MVVM.ViewModels
             }
         }
 
-        //private MemberDTO _updateMember;
-
-        //public MemberDTO UpdateMember
-        //{
-        //    get { return _updateMember; }
-        //    set
-        //    {
-        //        _updateMember = value;
-        //        OnPropertyChanged(nameof(UpdateMember));
-        //    }
-        //}
-
         public RelayCommand UpdateMemberCommand => new RelayCommand(m => UpdateMember());
         public RelayCommand NavigateToMemberInfoCommand;
 
@@ -47,7 +35,6 @@ namespace Grobund.WPF.MVVM.ViewModels
         {
             ViewTitle = "Opdater medlem";
             Member = new MemberDTO();
-            //UpdateMember = new MemberDTO();
         }
 
         public void LoadMember(int id)
