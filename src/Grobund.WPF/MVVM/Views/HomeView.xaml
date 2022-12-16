@@ -78,10 +78,11 @@
         <Image x:Name="Grobund_Billede" 
                Grid.Column="3" 
                Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="4" 
-               Source="/Images/GrobundBillede.jpg" 
-               Stretch="UniformToFill" Height="150" UseLayoutRounding="true" Margin="0,0,7,93"
+               Source="/Images/grobund4.png" 
+               Stretch="UniformToFill" Height="150" UseLayoutRounding="true" Margin="0,0,7,93" IsEnabled="False"
                
         />
+
 
 
 
