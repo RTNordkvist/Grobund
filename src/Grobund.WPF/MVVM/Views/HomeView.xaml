@@ -77,26 +77,10 @@
 
         <Image x:Name="Grobund_Billede2" 
                Grid.Column="3" 
-               Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="4" 
-               Source="/Images/grobund4.png" UseLayoutRounding="true" Margin="0,0,7,93" ClipToBounds="True" SnapsToDevicePixels="True" Width="25" Height="25"
+               Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="4" 
+               Source="/Images/grobund4.png" UseLayoutRounding="true" Margin="1,50,1,1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" Height="102"
                
         />
-
-        <StackPanel Grid.Column="3" Grid.Row="2">
-            <Image x:Name="Grobund_Billede" 
-                Grid.ColumnSpan="1" Grid.RowSpan="4" 
-               Source="/Images/grobund4.png" UseLayoutRounding="true" Margin="0,0,7,93" ClipToBounds="True" SnapsToDevicePixels="True" Width="25" Height="25"
-               
-        />
-            
-        </StackPanel>
-
-
-
-
-
-
-
     </Grid>
 </UserControl>
 
