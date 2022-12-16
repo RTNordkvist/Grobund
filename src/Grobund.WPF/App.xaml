@@ -25,6 +25,10 @@
                 <view:RegisterMemberView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:UpdateMemberViewModel}" >
+                <view:UpdateMemberView/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type viewModel:MemberInfoViewModel}" >
                 <view:MemberInfoView/>
             </DataTemplate>

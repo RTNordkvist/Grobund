@@ -2,9 +2,11 @@
 using Grobund.WPF.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 
@@ -15,15 +17,17 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 	internal class MainViewModel : ObservableObject
 	{
+
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
+        public RelayCommand NavigateToUpdateCommand { get; set; }
+        
         public HomeViewModel HomeVM { get; set; }
-
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
-
 		public MemberInfoViewModel MemberInfoVM { get; set; }
+        public UpdateMemberViewModel UpdateMemberVM { get; set; }
 
-		private object _currentView;
+        private object _currentView;
 
 		public object CurrentView
 		{
@@ -36,7 +40,34 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			MemberInfoVM = new MemberInfoViewModel();
+            
+			UpdateMemberVM = new UpdateMemberViewModel()
+			{
+                NavigateToMemberInfoCommand = new RelayCommand(o =>
+                {
+                    MemberInfoVM.LoadMember(((Member)o).Id);
+                    CurrentView = MemberInfoVM;
+                })
+            };
+
+            MemberInfoVM = new MemberInfoViewModel()
+			{
+                NavigateToUpdateMemberCommand = new RelayCommand(o =>
+                {
+                    UpdateMemberVM.LoadMember(((Member)o).Id);
+                    CurrentView = UpdateMemberVM;
+                }),
+
+
+                NavigateHomeCommand = new RelayCommand(o =>
+                {
+
+                    CurrentView = HomeVM;
+
+
+                })
+        };
+
 			RegisterMemberVM = new RegisterMemberViewModel()
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
@@ -50,13 +81,14 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 			HomeViewCommand = new RelayCommand(o =>
 			{
-				CurrentView= HomeVM;
+
+                CurrentView = HomeVM;
 			});
 
-            RegisterMemberViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = RegisterMemberVM;
-            });
+			RegisterMemberViewCommand = new RelayCommand(o =>
+			{
+				CurrentView = RegisterMemberVM;
+			});
         }
     }
 }
