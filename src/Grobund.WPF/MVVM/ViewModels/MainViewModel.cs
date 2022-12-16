@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Grobund.WPF.MVVM.ViewModels
 {
@@ -56,7 +57,10 @@ namespace Grobund.WPF.MVVM.ViewModels
 
                 NavigateHomeCommand = new RelayCommand(o =>
                 {
+
                     CurrentView = HomeVM;
+
+
                 })
         };
 
@@ -73,7 +77,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 
 			HomeViewCommand = new RelayCommand(o =>
 			{
-				CurrentView= HomeVM;
+
+                CurrentView = HomeVM;
 			});
 
 			RegisterMemberViewCommand = new RelayCommand(o =>

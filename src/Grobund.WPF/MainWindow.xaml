@@ -42,7 +42,7 @@
                        />
 
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Hjem" 
+                <RadioButton Name="HomeButton"  Content="Hjem" 
                              Height="50"
                              Foreground="White"
                              FontSize="14"
