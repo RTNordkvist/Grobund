@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <None Remove="Images\close.png" />
+    <None Remove="Images\grobund4.png" />
     <None Remove="Images\GrobundBaggrund.png" />
     <None Remove="Images\man.png" />
     <None Remove="Images\maximize.png" />
@@ -45,6 +46,12 @@
   <ItemGroup>
     <Folder Include="MVVM\Models\" />
     <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\grobund4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
