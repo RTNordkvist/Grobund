@@ -11,11 +11,11 @@
                 <ResourceDictionary Source="theme/menubuttontheme.xaml"/>
                 <ResourceDictionary Source="theme/textboxtheme.xaml"/>
                 <ResourceDictionary Source="theme/windowbuttontheme.xaml"/>
-                <ResourceDictionary Source="images/close.png"/>
-                <ResourceDictionary Source="images/maximize.png"/>
-                <ResourceDictionary Source="images/minimize.png"/>
-                <ResourceDictionary Source="images/GrobundBaggrund.png"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <BitmapImage x:Key="close" UriSource="Images/close.png"/>
+            <BitmapImage x:Key="maximize" UriSource="Images/maximize.png"/>
+            <BitmapImage x:Key="minimize" UriSource="Images/minimize.png"/>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}" >
                 <view:HomeView/>

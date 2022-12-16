@@ -65,35 +65,12 @@
                      Grid.Column="1"
                      Style="{StaticResource ModernTextBox}"/>
 
-            <Ellipse x:Name="Exit" Fill="Red" 
-                     Grid.Column="1" 
-                     Grid.Row="0" 
-                     Height="14" Width="16" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Top" Margin="0,68,126,0" MouseLeftButtonDown="exitApp" Cursor="Hand" Focusable="True" Grid.RowSpan="2" />
-
-            <Ellipse x:Name="Minimize" Fill="Yellow" 
-                     Grid.Column="1" 
-                     Grid.Row="0" 
-                     Height="15" Width="16" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Top" Margin="0,60,176,0" MouseLeftButtonDown="minimizeApp" Cursor="Hand" />
-
-            <Ellipse x:Name="Maximize" Fill="Green" 
-                     Grid.Column="1" 
-                     Grid.Row="0" 
-                     Height="15" Width="15" 
-                     HorizontalAlignment="Right" 
-                     VerticalAlignment="Top" Margin="0,65,151,0" MouseLeftButtonDown="maximizeApp" Cursor="Hand" Grid.RowSpan="2" />
-
             <Button  x:Name="ExitButton"
                      Grid.Column="1"
                      Grid.Row="0"
                      Height="25"
                      Width="25"
-                     Style="{StaticResource WindowButtonTheme}"
-                     Command="{Binding ExitButtonCommand}"
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="685,10,10,40" HorizontalAlignment="Center" VerticalAlignment="Center">
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="685,10,10,40" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ExitButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/close.png"/>
                 </Button.Background>
@@ -104,9 +81,7 @@
                      Grid.Row="0"
                      Height="25"
                      Width="25"
-                     Style="{StaticResource WindowButtonTheme}"
-                     Command="{Binding MaximizeButtonCommand}"
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="655,10,40,40">
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="655,10,40,40" Click="MaximizeButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/maximize.png"/>
                 </Button.Background>
@@ -116,10 +91,8 @@
                      Grid.Column="1"
                      Grid.Row="0"
                      Height="25"
-                     Width="25"
-                     Style="{StaticResource WindowButtonTheme}"
-                     Command="{Binding MinimizeButtonCommand}"
-                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="625,10,70,40">
+                     Width="25" 
+                     BorderThickness="1,1,1,1" ClipToBounds="True" Margin="625,10,70,40" Click="MinimizeButton_Click">
                 <Button.Background>
                     <ImageBrush ImageSource="/Images/minimize.png"/>
                 </Button.Background>

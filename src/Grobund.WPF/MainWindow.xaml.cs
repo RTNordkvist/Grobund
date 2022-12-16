@@ -34,7 +34,7 @@ namespace Grobund.WPF
             this.DragMove();
         }
 
-        private void exitApp(object sender, MouseButtonEventArgs e)
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -46,7 +46,19 @@ namespace Grobund.WPF
             }
         }
 
-        private void minimizeApp(object sender, MouseButtonEventArgs e)
+        private void MaximizeButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+            }
+        }
+
+        private void MinimizeButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -58,16 +70,9 @@ namespace Grobund.WPF
             }
         }
 
-        private void maximizeApp(object sender, MouseButtonEventArgs e)
+        private void minimizeButton_Click(object sender, RoutedEventArgs e)
         {
-            if (WindowState == WindowState.Normal)
-            {
-                WindowState = WindowState.Maximized;
-            }
-            else
-            {
-                WindowState = WindowState.Normal;
-            }
+
         }
     }
 }

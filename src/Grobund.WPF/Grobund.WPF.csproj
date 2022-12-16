@@ -15,6 +15,29 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\close.png" />
+    <None Remove="Images\GrobundBaggrund.png" />
+    <None Remove="Images\man.png" />
+    <None Remove="Images\maximize.png" />
+    <None Remove="Images\minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\man.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\maximize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\minimize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GrobundDB\GrobundDB.sqlproj" />
     <ProjectReference Include="..\GrobundLibrary\GrobundLibrary.csproj" />
   </ItemGroup>
@@ -22,6 +45,12 @@
   <ItemGroup>
     <Folder Include="MVVM\Models\" />
     <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Images\GrobundBaggrund.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
