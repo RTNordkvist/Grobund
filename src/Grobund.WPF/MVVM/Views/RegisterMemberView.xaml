@@ -46,7 +46,7 @@
                    Foreground="White" 
                    TextAlignment="Justify"  />
         <TextBox x:Name="nameText" 
-                 Text="{Binding Member.Name}"
+                 Text="{Binding Member.Name, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Column="2" 
                  Grid.Row="2" 
                  MinWidth="250" 

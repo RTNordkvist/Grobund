@@ -27,6 +27,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             PostalCode = member.PostalCode;
             City = member.City;
             Country = member.Country;
+
         }
 
         public int Id { get; set; }
@@ -37,13 +38,26 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             get { return _name; }
             set
             {
-                if (Name != value)
+                if (string.IsNullOrWhiteSpace(value))
                 {
+                    _nameIsValid = false;
+                    throw new ArgumentException("Navn skal udfyldes");
+                }
+                else if (value.Length > 50)
+                {
+                    _nameIsValid = false;
+                    throw new ArgumentException("Navn må ikke være længere end 50 tegn");
+                }
+                else
+                {
+                    _nameIsValid = true;
                     _name = value;
                     OnPropertyChanged(nameof(Name));
                 }
             }
         }
+
+        bool _nameIsValid { get; set; }
 
         private string _email;
         public string Email
@@ -171,6 +185,11 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
                 _registered = value;
                 OnPropertyChanged(nameof(Registered));
             }
+        }
+        
+        public bool Validate()
+        {
+            return _nameIsValid;
         }
     }
 }

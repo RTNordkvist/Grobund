@@ -47,7 +47,7 @@ namespace Grobund.WPF.MVVM.ViewModels
             try
             {
 
-                if (ValidateMemberForm(Member.Name, Member.Email, Member.PhoneNumber))
+                if (Member.Validate())
                 {
                     var member = new Member(Member.Name, Member.Email, Member.PhoneNumber, Member.MobileNumber, 
                                             Member.Address1, Member.Address2, Member.PostalCode, Member.City, Member.Country);
@@ -63,30 +63,15 @@ namespace Grobund.WPF.MVVM.ViewModels
                     Member = new MemberDTO();
 
                     NavigateToMemberInfoCommand.Execute(new Member { Id = member.Id});
+                } else
+                {
+                    MessageBox.Show("Der er fejl i formularen");
                 }
             }
             catch (Exception e)
             {
                 throw new Exception("The member already exist");
             }
-        }
-
-        //TODO - implement validation logic for member registration
-        public static bool ValidateMemberForm(string name, string email, string phoneNumber)
-        {
-            bool isValid = true;
-
-            return isValid;
-        }
-
-        private bool validateEmail(string email)
-        {
-            throw new NotImplementedException();
-        }
-
-        private bool validatePhoneNumber(string phoneNumber)
-        {
-            throw new NotImplementedException();
         }
     }
 }
