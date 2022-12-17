@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 
 namespace Grobund.DataAccess.Repositories
 {
-    public class AssociationMembershipRepository : IRepository<AssociationMembership>
+    public class CertificateRepository : IRepository<Certificate>
     {
-        public int Create(AssociationMembership model)
+        public int Create(Certificate model)
         {
             throw new NotImplementedException();
         }
 
-        public AssociationMembership ReadById(int id)
+        public Certificate ReadById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Certificate FindCertificate(int associationId, int memberId)
         {
             throw new NotImplementedException();
         }

@@ -55,5 +55,10 @@ namespace Grobund.DataAccess.Repositories
                 return member;
             }
         }
+
+        public List<Certificate> GetMemberCertificates(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

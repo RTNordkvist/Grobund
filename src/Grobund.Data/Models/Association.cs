@@ -10,8 +10,7 @@ namespace Grobund.Data.Models
     {
         public int Id { get; set; }
         public int Name { get; set; }
-        public AssociationTypeEnum AssociationType { get; set; }
-        public int? MaximumMembers { get; set; }
-        public decimal Price { get; set; }
+        public int NoOfCertificates { get; set; }
+        public decimal CertificatePrice { get; set; }
     }
 }
