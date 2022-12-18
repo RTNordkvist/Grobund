@@ -28,6 +28,14 @@
                 <view:MemberInfoView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:ShowAssociationViewModel}" >
+                <view:ShowAssociationView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ShowCertificateViewModel}" >
+                <view:ShowCertificateView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

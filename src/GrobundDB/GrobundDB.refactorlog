@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4bf6c969-c14a-4f3b-aad1-c65f910d76c0" ChangeDateTime="12/18/2022 11:55:42">
+    <Property Name="ElementName" Value="[dbo].[Certificates].[CertificateNo]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Certificates]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateNumber" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d044bef2-de67-4239-99d4-3a2ca41d512f" ChangeDateTime="12/18/2022 20:18:23">
+    <Property Name="ElementName" Value="[dbo].[Trades].[AssociationId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Trades]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CertificateId" />
+  </Operation>
+</Operations>

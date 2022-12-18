@@ -12,7 +12,9 @@ namespace Grobund.Data.Models
         public string CertificateNumber { get; set; }
         public int AssociationId { get; set; }
         public Association Association { get; set; }
-        public int OwnerId { get; set; }
+        public int? OwnerId { get; set; }
         public Member Owner { get; set; }
+        public List<Trade> Trades { get; set; }
+        public decimal PaidAmount { get; set; }
     }
 }

@@ -9,8 +9,9 @@ namespace Grobund.Data.Models
     public class Association
     {
         public int Id { get; set; }
-        public int Name { get; set; }
-        public int NoOfCertificates { get; set; }
+        public string Name { get; set; }
+        public int MaxNoOfCertificates { get; set; }
         public decimal CertificatePrice { get; set; }
+        public List<Certificate> Certificates { get; set; }
     }
 }

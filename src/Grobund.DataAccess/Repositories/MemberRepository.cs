@@ -11,7 +11,7 @@ using System.Collections;
 
 namespace Grobund.DataAccess.Repositories
 {
-    public class MemberRepository : IRepository<Member>
+    public class MemberRepository
     {
         public int Create(Member member)
         {
