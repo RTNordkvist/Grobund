@@ -11,6 +11,7 @@
                 <ResourceDictionary Source="theme/menubuttontheme.xaml"/>
                 <ResourceDictionary Source="theme/textboxtheme.xaml"/>
                 <ResourceDictionary Source="theme/windowbuttontheme.xaml"/>
+
             </ResourceDictionary.MergedDictionaries>
 
             <BitmapImage x:Key="close" UriSource="Images/close.png"/>

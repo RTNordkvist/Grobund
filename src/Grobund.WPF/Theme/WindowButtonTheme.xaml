@@ -11,8 +11,6 @@
                             Width ="{TemplateBinding Width}"
                             Background="{TemplateBinding Background}"
                             />
-                    
-
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

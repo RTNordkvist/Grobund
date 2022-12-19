@@ -15,6 +15,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\close.png" />
+    <None Remove="Images\maximize.png" />
+    <None Remove="Images\minimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="{215d64d2-031c-33c7-96e3-61794cd1ee61}">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>4</VersionMinor>
@@ -34,9 +40,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Images\grobund4.png">
+    <Resource Include="Images\grobund4.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\maximize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\minimize.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

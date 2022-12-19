@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#1b1b1b">
+             Background="#146434">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

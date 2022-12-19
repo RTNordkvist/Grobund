@@ -27,7 +27,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#22202f"/>
+                <Setter Property="Background" Value="#FF002F13"/>
             </Trigger>
         </Style.Triggers>
         
