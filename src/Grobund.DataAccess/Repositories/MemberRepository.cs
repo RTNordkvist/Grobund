@@ -74,7 +74,7 @@ namespace Grobund.DataAccess.Repositories
 
             string connStr = GlobalConfig.GetConnectionString();
 
-            using (SqlConnection cn = new SqlConnection(connStr))
+            /*using (SqlConnection cn = new SqlConnection(connStr))
             {
                 int.TryParse(searchText, out int SearchID);
 
@@ -99,17 +99,12 @@ namespace Grobund.DataAccess.Repositories
             {
                 result.Add(ConvertToMember(rw));
             }
-            return result;
+            return result;*/
 
 
+            int.TryParse(searchText, out int IdSearch);
 
-
-
-
-
-            /*int.TryParse(searchText, out int IdSearch);
-
-            string connStr = GlobalConfig.GetConnectionString();
+            //string connStr = GlobalConfig.GetConnectionString();
             List<Member> members = null;
             
             using (SqlConnection cn = new SqlConnection(connStr))
@@ -125,7 +120,7 @@ namespace Grobund.DataAccess.Repositories
                 members=GetList<Member>(dataReader);
             }
 
-            return members;*/
+            return members; 
         }
 
         private Member ConvertToMember(DataRow rw)

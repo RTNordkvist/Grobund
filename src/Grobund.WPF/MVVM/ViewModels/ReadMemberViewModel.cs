@@ -53,7 +53,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public ReadMemberViewModel()
         {
-            Members= new ObservableCollection<MemberDTO>();
+            Members = new ObservableCollection<MemberDTO>();
         }
 
         public void searchCommand()
@@ -71,9 +71,9 @@ namespace Grobund.WPF.MVVM.ViewModels
                     PhoneNumber = x.PhoneNumber
                 });
 
-            foreach (var dog in seachresult)
+            foreach (var member in seachresult)
             {
-                Members.Add(dog);
+                Members.Add(member);
             }
         }
 
