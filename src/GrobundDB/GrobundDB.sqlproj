@@ -76,4 +76,7 @@
   <ItemGroup>
     <RefactorLog Include="GrobundDB.refactorlog" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
 </Project>

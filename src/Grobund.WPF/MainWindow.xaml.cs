@@ -33,5 +33,10 @@ namespace Grobund.WPF
 
             this.DragMove();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
