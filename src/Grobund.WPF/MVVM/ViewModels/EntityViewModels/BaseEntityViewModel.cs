@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
 {
-    public class BaseDTO : INotifyPropertyChanged
+    public class BaseEntityViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 

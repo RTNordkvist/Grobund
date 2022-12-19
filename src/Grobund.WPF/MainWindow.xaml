@@ -57,6 +57,19 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding RegisterMemberViewCommand}"/>
+                <RadioButton Content="Foreninger" 
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ShowAssociationViewCommand}"/>
+                <RadioButton Content="Søg Efter Medlem" 
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ReadMemberViewCommand}"/>
+
             </StackPanel>
 
             <TextBox Width="250"

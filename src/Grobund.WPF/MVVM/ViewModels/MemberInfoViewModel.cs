@@ -35,7 +35,6 @@ namespace Grobund.WPF.MVVM.ViewModels
         public RelayCommand NavigateHomeCommand { get; set; }
 
 
-
         public MemberInfoViewModel()
         {
             Member = new MemberDTO();
@@ -57,20 +56,16 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public void ViewUpdateMember()
         {
-
-
             NavigateToUpdateMemberCommand.Execute(new Member { Id = Member.Id });
         }
 
         public bool DeleteMember()
         {
-
             var confirmation = MessageBox.Show("Er du sikker på at du vil slette medlemmet?", "Slet medlem", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (confirmation == MessageBoxResult.Yes)
             {
             var db = new MemberRepository();
-            
 
             var member = db.ReadById(Member.Id);
 

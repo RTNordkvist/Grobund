@@ -69,5 +69,14 @@
     <Build Include="dbo\Tables\Members.sql" />
     <Build Include="dbo\StoredProcedures\spMembers_Insert.sql" />
     <Build Include="Addresses.sql" />
+    <Build Include="Associations.sql" />
+    <Build Include="Certificates.sql" />
+    <Build Include="Trades.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="GrobundDB.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
 </Project>

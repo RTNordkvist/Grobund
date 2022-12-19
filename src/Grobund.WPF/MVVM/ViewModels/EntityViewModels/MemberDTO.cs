@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
 {
-    public class MemberDTO : BaseDTO
+    public class MemberDTO : BaseEntityViewModel
     {
         public MemberDTO() 
         {

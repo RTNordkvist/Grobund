@@ -23,7 +23,7 @@ namespace Grobund.Data.Models
 
         public Member() {}
 
-        public Member(string name, string email, string phoneNumber, string mobileNumber, 
+        public Member(string name, string email, string phoneNumber, string mobileNumber , 
                         string address1, string address2, string city, string postalCode, string country)
         {
             Name = name;
