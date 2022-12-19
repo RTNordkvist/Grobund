@@ -27,13 +27,9 @@ namespace Grobund.WPF.MVVM.ViewModels
         public ShowAssociationViewModel ShowAssociationVM { get; set; }
         public ShowCertificateViewModel ShowCertificateVM { get; set; }
 
-        public RegisterMemberViewModel RegisterMemberVM { get; set;}
-
 
         private object _currentView;
         public ReadMemberViewModel ReadMemberVM { get; set; }
-
-        private object _currentView;
 
         public object CurrentView
         {
