@@ -42,7 +42,7 @@
                        />
 
             <StackPanel Grid.Row="1">
-                <RadioButton Content="Hjem" 
+                <RadioButton Name="HomeButton"  Content="Hjem" 
                              Height="50"
                              Foreground="White"
                              FontSize="14"
@@ -55,6 +55,12 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding RegisterMemberViewCommand}"/>
+                <RadioButton Content="Foreninger" 
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ShowAssociationViewCommand}"/>
 
             </StackPanel>
 

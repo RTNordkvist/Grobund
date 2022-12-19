@@ -3,46 +3,47 @@ using Grobund.WPF.Core;
 using Grobund.WPF.MVVM.ViewModels.EntityViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Grobund.WPF.MVVM.ViewModels
 {
 
-	internal class MainViewModel : ObservableObject
-	{
-		public RelayCommand HomeViewCommand { get; set; }
+    internal class MainViewModel : ObservableObject
+    {
+
+        public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
+        public RelayCommand ShowAssociationViewCommand { get; set; }
+
         public HomeViewModel HomeVM { get; set; }
+        public RegisterMemberViewModel RegisterMemberVM { get; set; }
+        public MemberInfoViewModel MemberInfoVM { get; set; }
+        public UpdateMemberViewModel UpdateMemberVM { get; set; }
+        public ShowAssociationViewModel ShowAssociationVM { get; set; }
+        public ShowCertificateViewModel ShowCertificateVM { get; set; }
 
-		public RegisterMemberViewModel RegisterMemberVM { get; set;}
 
-		public MemberInfoViewModel MemberInfoVM { get; set; }
 
-		private object _currentView;
+        private object _currentView;
 
-		public object CurrentView
-		{
-			get { return _currentView; }
-			set { _currentView = value;
-				OnPropertyChanged();
-			}
-		}
+        public object CurrentView
+        {
+            get { return _currentView; }
+            set
+            {
+                _currentView = value;
+                OnPropertyChanged();
+            }
+        }
 
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			ReadMemberVM = new ReadMemberViewModel()
-            {
-                NavigateToMemberInfoCommand = new RelayCommand(o =>
-                {
-                    MemberInfoVM.LoadMember(((MemberDTO)o).Id);
-                    CurrentView = MemberInfoVM;
-                })
-            };
-
-            MemberInfoVM = new MemberInfoViewModel();
+			MemberInfoVM = new MemberInfoViewModel();
 			RegisterMemberVM = new RegisterMemberViewModel()
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
@@ -52,18 +53,40 @@ namespace Grobund.WPF.MVVM.ViewModels
 				})
 			};
 
-            CurrentView = HomeVM;
+            ShowAssociationVM = new ShowAssociationViewModel()
+            {
+                NavigateToCertificateCommand = new RelayCommand(o =>
+                {
+                    ShowCertificateVM.LoadCertificate(((Certificate)o).Id);
+                    CurrentView = ShowCertificateVM;
+                })
+            };
 
-			HomeViewCommand = new RelayCommand(o =>
-			{
-				CurrentView= HomeVM;
-			});
+            ShowCertificateVM = new ShowCertificateViewModel()
+            {
+                NavigateToOwnerCommand = new RelayCommand(o =>
+                {
+                    MemberInfoVM.LoadMember(((Member)o).Id);
+                    CurrentView = MemberInfoVM;
+                })
+            };
+
+            HomeViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = HomeVM;
+            });
 
             RegisterMemberViewCommand = new RelayCommand(o =>
             {
                 CurrentView = RegisterMemberVM;
             });
-        }
 
-	}
+            ShowAssociationViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ShowAssociationVM;
+            });
+
+            CurrentView = HomeVM;
+        }
+    }
 }
