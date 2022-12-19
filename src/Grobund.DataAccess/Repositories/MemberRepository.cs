@@ -69,7 +69,7 @@ namespace Grobund.DataAccess.Repositories
 
         public IEnumerable<Member> Search(string searchText)
         {
-            string query = "SELECT * FROM Members WHERE Id = @id OR Name = @name OR Email = @email OR PhoneNumber = @phoneNumber";
+            string query = "SELECT * FROM Members WHERE Id = @id OR Name LIKE @name OR Email LIKE @email OR PhoneNumber LIKE @phoneNumber";
 
             DataTable dataTable = new DataTable();
 
@@ -114,9 +114,9 @@ namespace Grobund.DataAccess.Repositories
                 SqlDataAdapter da = new SqlDataAdapter(query, cn);
                 SqlCommand cmd = new SqlCommand(query, cn);
                 cmd.Parameters.AddWithValue("@id", IdSearch);
-                cmd.Parameters.AddWithValue("@name", searchText);
-                cmd.Parameters.AddWithValue("@email", searchText);
-                cmd.Parameters.AddWithValue("@phoneNumber", searchText);
+                cmd.Parameters.AddWithValue("@name", "%" + searchText + "%");
+                cmd.Parameters.AddWithValue("@email", "%" + searchText + "%");
+                cmd.Parameters.AddWithValue("@phoneNumber", "%" + searchText + "%");
                 var dataReader=cmd.ExecuteReader();
                 members=GetList<Member>(dataReader);
             }
