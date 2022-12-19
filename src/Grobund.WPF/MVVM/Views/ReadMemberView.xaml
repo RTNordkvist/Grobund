@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Margin="-68,-62,0,0">
+    <Grid Margin="0,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="auto"/>
@@ -36,128 +36,42 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="1" 
-                   Grid.Row="2" 
+                   Grid.Row="1" 
                    FontSize="24" 
                    MinWidth="250" 
                    Text="Skriv Id, Navn, Email eller Tlf.nr" 
                    Foreground="White" 
-                   TextAlignment="Center"
-                   Margin="78,10,445,40" Grid.RowSpan="2" Grid.ColumnSpan="5" />
+                   TextAlignment="Center"/>
         <!--Interacting UI-->
         <TextBox x:Name="SearchText" 
                  Grid.Column="1" 
-                 Grid.Row="3" 
+                 Grid.Row="2" 
                  MinWidth="250" 
                  MinHeight="40"
-                 Margin="78,10,457,46" 
                  Text="{Binding SearchText}"
-                 MaxHeight="24" TextAlignment="Center" FontSize="24" Grid.RowSpan="2" Grid.ColumnSpan="5"
+                 Margin="0,5,0,0"
+                 MaxHeight="24" TextAlignment="Center" FontSize="24"
                  />
 
         <Button x:Name="SearchButton" 
-                 Grid.Column="5" 
-                 Grid.Row="4" 
+                 Grid.Column="1" 
+                 Grid.Row="3" 
                  MinWidth="10" 
                  MinHeight="40" 
                  MaxHeight="48"
                  Command="{Binding SearchMemberCommand}"
-                 Content="Søg" HorizontalAlignment="Left" Width="104" Height="40" VerticalAlignment="Top" Margin="164,14,0,0"
+                 Content="Søg" HorizontalAlignment="Left" Width="104" Height="40" VerticalAlignment="Top" Margin="100,5,0,0"
                  />
-
-        <!--Member NameInfo-->
-        <TextBlock x:Name="Nametext" 
-                   Grid.Column="1" 
-                   Grid.Row="6" 
-                   FontSize="24" 
-                   MinWidth="250" 
-                   Text="Navn:" 
-                   Foreground="White"
-                   Margin="87,0,457,32" Grid.ColumnSpan="5" Grid.RowSpan="2" />
-        <TextBlock x:Name="MembersName" 
-                   Grid.Column="1" 
-                   Grid.Row="6" 
-                   FontSize="24" 
-                   MinWidth="50" 
-                   Text="" 
-                   Foreground="White"
-                   Margin="175,0,0,0" HorizontalAlignment="Left" Width="158" Height="32" VerticalAlignment="Center" Grid.ColumnSpan="5" />
-        <!--Member Email-->
-        <TextBlock x:Name="Emailtext" 
-                   Grid.Column="1" 
-                   Grid.Row="7" 
-                   FontSize="24" 
-                   MinWidth="250" 
-                   Text="E-mail:" 
-                   Foreground="White"
-                   Margin="87,0,457,32" Grid.ColumnSpan="5" Grid.RowSpan="2" />
-        <TextBlock x:Name="MembersEmail" 
-                   Grid.Column="1" 
-                   Grid.Row="7" 
-                   FontSize="24" 
-                   MinWidth="50" 
-                   Text="" 
-                   Foreground="White"
-                   Margin="175,0,466,0" Height="32" VerticalAlignment="Center" Grid.ColumnSpan="5" />
-        <!--Phone Info-->
-        <TextBlock x:Name="Phonetext" 
-                   Grid.Column="1" 
-                   Grid.Row="8" 
-                   FontSize="24" 
-                   MinWidth="250" 
-                   Text="Telefon.Nr:" 
-                   Foreground="White"
-                   Margin="87,0,457,32" Grid.ColumnSpan="5" Grid.RowSpan="2" />
-        <TextBlock x:Name="MembersPhone" 
-                   Grid.Column="1" 
-                   Grid.Row="8" 
-                   FontSize="24" 
-                   MinWidth="25" 
-                   Text="" 
-                   Foreground="White"
-                   Margin="199,0,0,0" HorizontalAlignment="Left" Width="134" Height="32" VerticalAlignment="Center" Grid.ColumnSpan="5" />
-        <!--Adress Info-->
-        <TextBlock x:Name="Adresstext" 
-                   Grid.Column="1" 
-                   Grid.Row="9" 
-                   FontSize="24" 
-                   MinWidth="250" 
-                   Text="Adress:" 
-                   Foreground="White"
-                   Margin="87,0,457,32" Grid.ColumnSpan="5" Grid.RowSpan="2" />
-        <TextBlock x:Name="Membersadress" 
-                   Grid.Column="1" 
-                   Grid.Row="9" 
-                   FontSize="24" 
-                   MinWidth="25" 
-                   Text="" 
-                   Foreground="White"
-                   Margin="199,0,0,0" HorizontalAlignment="Left" Width="134" Height="32" VerticalAlignment="Center" Grid.ColumnSpan="5" />
-        <!--Registration-->
-        <TextBlock x:Name="Registered" 
-                   Grid.Column="1" 
-                   Grid.Row="10" 
-                   FontSize="24" 
-                   MinWidth="250" 
-                   Text="Betaling:" 
-                   Foreground="White"
-                   Margin="87,0,457,175" Grid.ColumnSpan="5" Grid.RowSpan="3" />
-        <TextBlock x:Name="MemberRegistration" 
-                   Grid.Column="1" 
-                   Grid.Row="10" 
-                   FontSize="24" 
-                   MinWidth="25" 
-                   Text="" 
-                   Foreground="White"
-                   Margin="199,0,0,0" HorizontalAlignment="Left" Width="134" Height="32" VerticalAlignment="Center" Grid.ColumnSpan="5" />
-        <ListBox x:Name="MembersView" Grid.Column="1" Grid.Row="6" SelectedItem="{Binding SelectedMember}" 
-                 d:ItemsSource="{Binding Members}" Grid.ColumnSpan="5" Margin="87,7,10,8" Grid.RowSpan="7">
+        <ListBox x:Name="MembersView" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding SelectedMember}" 
+                 ItemsSource="{Binding Members}" Grid.ColumnSpan="5" Margin="0,10,0,0" Grid.RowSpan="9">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="400">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="265"/>
-                            <ColumnDefinition Width="265"/>
-                            <ColumnDefinition Width="265"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Id}" Grid.Column="0" FontSize="14"/>
                         <TextBlock Text="{Binding Name}" Grid.Column="1" FontSize="14"/>
