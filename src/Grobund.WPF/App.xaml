@@ -24,6 +24,10 @@
                 <view:MemberInfoView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:ReadMemberViewModel}" >
+                <view:ReadMemberView/>
+            </DataTemplate>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

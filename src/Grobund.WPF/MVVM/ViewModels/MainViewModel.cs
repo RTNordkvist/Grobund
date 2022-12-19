@@ -13,13 +13,16 @@ namespace Grobund.WPF.MVVM.ViewModels
 	{
 		public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand RegisterMemberViewCommand { get; set; }
+		public RelayCommand ReadMemberViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
 
 		public RegisterMemberViewModel RegisterMemberVM { get; set;}
 
 		public MemberInfoViewModel MemberInfoVM { get; set; }
 
-		private object _currentView;
+        public ReadMemberViewModel ReadMemberVM { get; set; }
+
+        private object _currentView;
 
 		public object CurrentView
 		{
@@ -32,7 +35,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public MainViewModel()
 		{
 			HomeVM = new HomeViewModel();
-			MemberInfoVM = new MemberInfoViewModel();
+			ReadMemberVM = new ReadMemberViewModel();
+            MemberInfoVM = new MemberInfoViewModel();
 			RegisterMemberVM = new RegisterMemberViewModel()
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
@@ -52,6 +56,11 @@ namespace Grobund.WPF.MVVM.ViewModels
             RegisterMemberViewCommand = new RelayCommand(o =>
             {
                 CurrentView = RegisterMemberVM;
+            });
+
+			ReadMemberViewCommand = new RelayCommand(o =>
+            {
+                CurrentView = ReadMemberVM;
             });
         }
 

@@ -70,4 +70,7 @@
     <Build Include="dbo\StoredProcedures\spMembers_Insert.sql" />
     <Build Include="Addresses.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
 </Project>
