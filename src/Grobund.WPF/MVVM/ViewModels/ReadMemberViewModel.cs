@@ -60,17 +60,11 @@ namespace Grobund.WPF.MVVM.ViewModels
         {
            Members.Clear();
 
-           //Members = db.Search(searchText);
+            //Members = db.Search(searchText);
 
             var seachresult = db.Search(SearchText)
-                .Select(x => new MemberDTO
-                {
-                    Id = x.Id,
-                    Email = x.Email,
-                    Name = x.Name,
-                    PhoneNumber = x.PhoneNumber
-                });
-
+                .Select(x => new MemberDTO(x));
+                
             foreach (var member in seachresult)
             {
                 Members.Add(member);
