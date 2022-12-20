@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
 {
-    public class MemberDTO : BaseEntityViewModel
+    public class MemberViewModel : BaseEntityViewModel
     {
-        public MemberDTO() 
+        public MemberViewModel() 
         {
         }
 
-        public MemberDTO(Member member)
+        public MemberViewModel(Member member)
         {
             Id = member.Id;
             Name = member.Name;
@@ -57,7 +57,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
             }
         }
 
-        bool _nameIsValid { get; set; }
+        private bool _nameIsValid { get; set; }
 
         private string _email;
         public string Email

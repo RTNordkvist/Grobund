@@ -21,20 +21,18 @@ namespace Grobund.WPF.MVVM.ViewModels
 {
     internal class ReadMemberViewModel : ObservableObject
     {
-        MemberRepository db = new MemberRepository();
-
-        private MemberViewModel _member;
+        private MemberViewModel _selectedMember;
 
         public MemberViewModel SelectedMember
         {
-            get => _member;
+            get => _selectedMember;
             set
             {
                 NavigateToMemberInfoCommand.Execute(value);
             }
         }
 
-        public RelayCommand SearchMemberCommand => new RelayCommand(m => searchCommand());
+        public RelayCommand SearchMemberCommand => new RelayCommand(m => Search());
         public RelayCommand NavigateToMemberInfoCommand;
 
         public ObservableCollection<MemberViewModel> Members { get; set; }
@@ -44,27 +42,28 @@ namespace Grobund.WPF.MVVM.ViewModels
         public string SearchText
         {
             get { return _searchText; }
-            set { _searchText = value;
+            set
+            {
+                _searchText = value;
                 OnPropertyChanged(nameof(SearchText));
             }
 
         }
-
 
         public ReadMemberViewModel()
         {
             Members = new ObservableCollection<MemberViewModel>();
         }
 
-        public void searchCommand()
+        public void Search()
         {
-           Members.Clear();
+            Members.Clear();
 
-            //Members = db.Search(searchText);
+            var db = new MemberRepository();
 
             var seachresult = db.Search(SearchText)
                 .Select(x => new MemberViewModel(x));
-                
+
             foreach (var member in seachresult)
             {
                 Members.Add(member);

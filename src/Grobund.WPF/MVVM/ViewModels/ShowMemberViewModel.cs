@@ -28,9 +28,6 @@ namespace Grobund.WPF.MVVM.ViewModels
         }
 
         public RelayCommand DeleteMemberCommand => new RelayCommand(m => DeleteMember());
-
-        public RelayCommand ViewUpdateCommand => new RelayCommand(m => ViewUpdateMember());
-
         public RelayCommand NavigateToUpdateMemberCommand { get; set; }
         public RelayCommand NavigateHomeCommand { get; set; }
 
@@ -52,11 +49,6 @@ namespace Grobund.WPF.MVVM.ViewModels
             }
 
             Member = new MemberViewModel(member);
-        }
-
-        public void ViewUpdateMember()
-        {
-            NavigateToUpdateMemberCommand.Execute(new Member { Id = Member.Id });
         }
 
         public bool DeleteMember()

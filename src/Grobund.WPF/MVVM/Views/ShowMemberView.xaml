@@ -174,7 +174,7 @@
                  Margin="20,0,0,0" />
 
         <Button x:Name="updateMemberSubmitButton" 
-                Command="{Binding ViewUpdateCommand}"
+                Command="{Binding NavigateToUpdateMemberCommand}" CommandParameter="{Binding Member}"
                 Content="Opdater" 
                 Grid.Column="4" 
                 Grid.Row="14"

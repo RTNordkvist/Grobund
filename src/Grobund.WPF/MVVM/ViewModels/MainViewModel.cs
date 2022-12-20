@@ -30,10 +30,10 @@ namespace Grobund.WPF.MVVM.ViewModels
         public UpdateMemberViewModel UpdateMemberVM { get; set; }
         public ShowAssociationViewModel ShowAssociationVM { get; set; }
         public ShowCertificateViewModel ShowCertificateVM { get; set; }
+        public ReadMemberViewModel ReadMemberVM { get; set; }
 
 
         private object _currentView;
-        public ReadMemberViewModel ReadMemberVM { get; set; }
 
         public object CurrentView
         {
@@ -62,7 +62,7 @@ namespace Grobund.WPF.MVVM.ViewModels
             {
                 NavigateToUpdateMemberCommand= new RelayCommand(o =>
                 {
-                    UpdateMemberVM.LoadMember(((Member)o).Id);
+                    UpdateMemberVM.LoadMember(((MemberViewModel)o).Id);
                     CurrentView = UpdateMemberVM;
                 }),
                 NavigateHomeCommand= new RelayCommand(o =>
