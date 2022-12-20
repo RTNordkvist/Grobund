@@ -15,9 +15,9 @@ namespace Grobund.WPF.MVVM.ViewModels
 {
     internal class ShowMemberViewModel : ObservableObject
     {
-        private MemberDTO _member;
+        private MemberViewModel _member;
 
-        public MemberDTO Member
+        public MemberViewModel Member
         {
             get { return _member; }
             set
@@ -37,7 +37,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public ShowMemberViewModel()
         {
-            Member = new MemberDTO();
+            Member = new MemberViewModel();
         }
 
         public void LoadMember(int id)
@@ -51,7 +51,7 @@ namespace Grobund.WPF.MVVM.ViewModels
                 return;
             }
 
-            Member = new MemberDTO(member);
+            Member = new MemberViewModel(member);
         }
 
         public void ViewUpdateMember()

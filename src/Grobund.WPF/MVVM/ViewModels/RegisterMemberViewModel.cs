@@ -21,9 +21,9 @@ namespace Grobund.WPF.MVVM.ViewModels
     {
         public string ViewTitle { get; set;}
 
-        private MemberDTO _member;
+        private MemberViewModel _member;
 
-        public MemberDTO Member
+        public MemberViewModel Member
         {
             get { return _member; }
             set
@@ -39,7 +39,7 @@ namespace Grobund.WPF.MVVM.ViewModels
         public RegisterMemberViewModel()
         {
             ViewTitle = "Registrer medlem";
-            Member = new MemberDTO();
+            Member = new MemberViewModel();
         }
 
         public void SaveMember()
@@ -57,7 +57,7 @@ namespace Grobund.WPF.MVVM.ViewModels
                     var id = db.Create(member);
 
                     //Clearing forms
-                    Member = new MemberDTO();
+                    Member = new MemberViewModel();
 
                     NavigateToMemberInfoCommand.Execute(new Member { Id = member.Id});
                 } else

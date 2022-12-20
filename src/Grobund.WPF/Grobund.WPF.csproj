@@ -9,9 +9,17 @@
 
   <ItemGroup>
     <Compile Remove="Core\MVVM\**" />
+    <Compile Remove="Fonts\**" />
+    <Compile Remove="MVVM\Models\**" />
     <EmbeddedResource Remove="Core\MVVM\**" />
+    <EmbeddedResource Remove="Fonts\**" />
+    <EmbeddedResource Remove="MVVM\Models\**" />
     <None Remove="Core\MVVM\**" />
+    <None Remove="Fonts\**" />
+    <None Remove="MVVM\Models\**" />
     <Page Remove="Core\MVVM\**" />
+    <Page Remove="Fonts\**" />
+    <Page Remove="MVVM\Models\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,11 +40,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GrobundDB\GrobundDB.sqlproj" />
     <ProjectReference Include="..\GrobundLibrary\GrobundLibrary.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="MVVM\Models\" />
-    <Folder Include="Fonts\" />
   </ItemGroup>
 
   <ItemGroup>

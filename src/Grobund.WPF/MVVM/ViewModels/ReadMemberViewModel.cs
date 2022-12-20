@@ -23,9 +23,9 @@ namespace Grobund.WPF.MVVM.ViewModels
     {
         MemberRepository db = new MemberRepository();
 
-        private MemberDTO _member;
+        private MemberViewModel _member;
 
-        public MemberDTO SelectedMember
+        public MemberViewModel SelectedMember
         {
             get => _member;
             set
@@ -37,7 +37,7 @@ namespace Grobund.WPF.MVVM.ViewModels
         public RelayCommand SearchMemberCommand => new RelayCommand(m => searchCommand());
         public RelayCommand NavigateToMemberInfoCommand;
 
-        public ObservableCollection<MemberDTO> Members { get; set; }
+        public ObservableCollection<MemberViewModel> Members { get; set; }
 
         private string _searchText;
 
@@ -53,7 +53,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
         public ReadMemberViewModel()
         {
-            Members = new ObservableCollection<MemberDTO>();
+            Members = new ObservableCollection<MemberViewModel>();
         }
 
         public void searchCommand()
@@ -63,7 +63,7 @@ namespace Grobund.WPF.MVVM.ViewModels
             //Members = db.Search(searchText);
 
             var seachresult = db.Search(SearchText)
-                .Select(x => new MemberDTO(x));
+                .Select(x => new MemberViewModel(x));
                 
             foreach (var member in seachresult)
             {

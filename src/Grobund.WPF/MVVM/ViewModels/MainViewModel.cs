@@ -53,7 +53,7 @@ namespace Grobund.WPF.MVVM.ViewModels
             {
                 NavigateToMemberInfoCommand = new RelayCommand(o =>
                 {
-                    ShowMemberVM.LoadMember(((MemberDTO)o).Id);
+                    ShowMemberVM.LoadMember(((MemberViewModel)o).Id);
                     CurrentView = ShowMemberVM;
                 })
             };
