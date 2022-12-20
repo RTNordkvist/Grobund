@@ -18,9 +18,9 @@ namespace Grobund.WPF.MVVM.Views
     /// <summary>
     /// Interaction logic for MemberInfoView.xaml
     /// </summary>
-    public partial class MemberInfoView : UserControl
+    public partial class ShowMemberView : UserControl
     {
-        public MemberInfoView()
+        public ShowMemberView()
         {
             InitializeComponent();
         }

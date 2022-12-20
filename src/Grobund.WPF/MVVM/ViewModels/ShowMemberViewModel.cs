@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace Grobund.WPF.MVVM.ViewModels
 {
-    internal class MemberInfoViewModel : ObservableObject
+    internal class ShowMemberViewModel : ObservableObject
     {
         private MemberDTO _member;
 
@@ -35,7 +35,7 @@ namespace Grobund.WPF.MVVM.ViewModels
         public RelayCommand NavigateHomeCommand { get; set; }
 
 
-        public MemberInfoViewModel()
+        public ShowMemberViewModel()
         {
             Member = new MemberDTO();
         }

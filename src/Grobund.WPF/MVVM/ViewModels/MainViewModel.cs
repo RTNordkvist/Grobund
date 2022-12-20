@@ -26,7 +26,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 		public RelayCommand ReadMemberViewCommand { get; set; }
         public HomeViewModel HomeVM { get; set; }
         public RegisterMemberViewModel RegisterMemberVM { get; set; }
-        public MemberInfoViewModel MemberInfoVM { get; set; }
+        public ShowMemberViewModel ShowMemberVM { get; set; }
         public UpdateMemberViewModel UpdateMemberVM { get; set; }
         public ShowAssociationViewModel ShowAssociationVM { get; set; }
         public ShowCertificateViewModel ShowCertificateVM { get; set; }
@@ -53,12 +53,12 @@ namespace Grobund.WPF.MVVM.ViewModels
             {
                 NavigateToMemberInfoCommand = new RelayCommand(o =>
                 {
-                    MemberInfoVM.LoadMember(((MemberDTO)o).Id);
-                    CurrentView = MemberInfoVM;
+                    ShowMemberVM.LoadMember(((MemberDTO)o).Id);
+                    CurrentView = ShowMemberVM;
                 })
             };
 
-            MemberInfoVM = new MemberInfoViewModel() 
+            ShowMemberVM = new ShowMemberViewModel() 
             {
                 NavigateToUpdateMemberCommand= new RelayCommand(o =>
                 {
@@ -75,8 +75,8 @@ namespace Grobund.WPF.MVVM.ViewModels
             {
                 NavigateToMemberInfoCommand = new RelayCommand(o =>
                 {
-                    MemberInfoVM.LoadMember(((Member)o).Id);
-                    CurrentView = MemberInfoVM;
+                    ShowMemberVM.LoadMember(((Member)o).Id);
+                    CurrentView = ShowMemberVM;
                 })
             };
 
@@ -84,8 +84,8 @@ namespace Grobund.WPF.MVVM.ViewModels
 			{
 				NavigateToMemberInfoCommand = new RelayCommand(o => 
 				{
-					MemberInfoVM.LoadMember(((Member)o).Id);
-					CurrentView = MemberInfoVM;
+					ShowMemberVM.LoadMember(((Member)o).Id);
+					CurrentView = ShowMemberVM;
 				})
 			};
 
@@ -102,8 +102,8 @@ namespace Grobund.WPF.MVVM.ViewModels
             {
                 NavigateToOwnerCommand = new RelayCommand(o =>
                 {
-                    MemberInfoVM.LoadMember(((Member)o).Id);
-                    CurrentView = MemberInfoVM;
+                    ShowMemberVM.LoadMember(((Member)o).Id);
+                    CurrentView = ShowMemberVM;
                 })
             };
 

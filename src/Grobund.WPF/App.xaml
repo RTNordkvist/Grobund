@@ -30,8 +30,8 @@
                 <view:UpdateMemberView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:MemberInfoViewModel}" >
-                <view:MemberInfoView/>
+            <DataTemplate DataType="{x:Type viewModel:ShowMemberViewModel}" >
+                <view:ShowMemberView/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:ShowAssociationViewModel}" >
