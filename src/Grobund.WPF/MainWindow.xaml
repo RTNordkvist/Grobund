@@ -72,14 +72,6 @@
 
             </StackPanel>
 
-            <TextBox Width="250"
-                     Height="40"
-                     VerticalAlignment="Center"
-                     HorizontalAlignment="Left"
-                     Margin="5"
-                     Grid.Column="1"
-                     Style="{StaticResource ModernTextBox}"/>
-
             <Button  x:Name="ExitButton"
                      Grid.Column="1"
                      Grid.Row="0"
