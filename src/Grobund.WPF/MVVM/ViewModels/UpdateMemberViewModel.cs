@@ -29,7 +29,7 @@ namespace Grobund.WPF.MVVM.ViewModels
         }
 
         public RelayCommand UpdateMemberCommand => new RelayCommand(m => UpdateMember());
-        public RelayCommand NavigateToMemberInfoCommand;
+        public RelayCommand NavigateToShowMemberCommand;
 
         public UpdateMemberViewModel()
         {
@@ -59,7 +59,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
             db.Update(member);
 
-            NavigateToMemberInfoCommand.Execute(new Member { Id = member.Id });
+            NavigateToShowMemberCommand.Execute(new Member { Id = member.Id });
         }
     }
 }

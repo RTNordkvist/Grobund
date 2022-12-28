@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <None Remove="Images\close.png" />
+    <None Remove="Images\grobund_icon.jpg" />
     <None Remove="Images\maximize.png" />
     <None Remove="Images\minimize.png" />
   </ItemGroup>
@@ -35,6 +36,12 @@
       <VersionMajor>2</VersionMajor>
       <Guid>215d64d2-031c-33c7-96e3-61794cd1ee61</Guid>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\grobund_icon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

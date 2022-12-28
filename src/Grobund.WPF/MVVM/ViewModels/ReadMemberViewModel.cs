@@ -28,12 +28,12 @@ namespace Grobund.WPF.MVVM.ViewModels
             get => _selectedMember;
             set
             {
-                NavigateToMemberInfoCommand.Execute(value);
+                NavigateToShowMemberCommand.Execute(value);
             }
         }
 
         public RelayCommand SearchMemberCommand => new RelayCommand(m => Search());
-        public RelayCommand NavigateToMemberInfoCommand;
+        public RelayCommand NavigateToShowMemberCommand;
 
         public ObservableCollection<MemberViewModel> Members { get; set; }
 

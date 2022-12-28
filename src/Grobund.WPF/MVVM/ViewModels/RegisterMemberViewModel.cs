@@ -34,7 +34,7 @@ namespace Grobund.WPF.MVVM.ViewModels
         }
 
         public RelayCommand SaveMemberCommand => new RelayCommand(m => SaveMember());
-        public RelayCommand NavigateToMemberInfoCommand;
+        public RelayCommand NavigateToShowMemberCommand;
 
         public RegisterMemberViewModel()
         {
@@ -59,7 +59,7 @@ namespace Grobund.WPF.MVVM.ViewModels
                     //Clearing forms
                     Member = new MemberViewModel();
 
-                    NavigateToMemberInfoCommand.Execute(new Member { Id = member.Id});
+                    NavigateToShowMemberCommand.Execute(new Member { Id = member.Id});
                 } else
                 {
                     MessageBox.Show("Der er fejl i formularen");

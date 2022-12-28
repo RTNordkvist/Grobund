@@ -14,7 +14,8 @@
         Background="Transparent"
         AllowsTransparency="True"
         MinHeight="500"
-        MinWidth="500">
+        MinWidth="500"
+        Icon="Images/grobund_icon.jpg">
     <Window.DataContext>
         <viewModel:MainViewModel/>
 

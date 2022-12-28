@@ -51,7 +51,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 			
             ReadMemberVM = new ReadMemberViewModel()
             {
-                NavigateToMemberInfoCommand = new RelayCommand(o =>
+                NavigateToShowMemberCommand = new RelayCommand(o =>
                 {
                     ShowMemberVM.LoadMember(((MemberViewModel)o).Id);
                     CurrentView = ShowMemberVM;
@@ -73,7 +73,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
             UpdateMemberVM = new UpdateMemberViewModel()
             {
-                NavigateToMemberInfoCommand = new RelayCommand(o =>
+                NavigateToShowMemberCommand = new RelayCommand(o =>
                 {
                     ShowMemberVM.LoadMember(((Member)o).Id);
                     CurrentView = ShowMemberVM;
@@ -82,7 +82,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 
             RegisterMemberVM = new RegisterMemberViewModel()
 			{
-				NavigateToMemberInfoCommand = new RelayCommand(o => 
+				NavigateToShowMemberCommand = new RelayCommand(o => 
 				{
 					ShowMemberVM.LoadMember(((Member)o).Id);
 					CurrentView = ShowMemberVM;
