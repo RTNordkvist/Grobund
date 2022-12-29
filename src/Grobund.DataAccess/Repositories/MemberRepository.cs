@@ -26,8 +26,10 @@ namespace Grobund.DataAccess.Repositories
         public int Create(Member member)
         {
             string query = "INSERT INTO dbo.members " +
-                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
-                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country, @Registered)" +
+                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, " +
+                "Country, Registered) " +
+                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, " +
+                "@PostalCode, @City, @Country, @Registered)" +
                 " SELECT @id = SCOPE_IDENTITY();";
 
             using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
