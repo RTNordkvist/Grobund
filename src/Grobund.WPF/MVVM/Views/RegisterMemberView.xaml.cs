@@ -1,7 +1,4 @@
 ﻿using Grobund.WPF.MVVM.ViewModels;
-using GrobundLibrary;
-using GrobundLibrary.DataAccess;
-using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

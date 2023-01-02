@@ -2,7 +2,6 @@
 using Grobund.DataAccess.Repositories;
 using Grobund.WPF.Core;
 using Grobund.WPF.MVVM.ViewModels.EntityViewModels;
-using GrobundLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;

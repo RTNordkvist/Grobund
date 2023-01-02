@@ -1,8 +1,5 @@
 ﻿using Grobund.WPF.Core;
 using Grobund.WPF.MVVM.ViewModels.EntityViewModels;
-using GrobundLibrary.DataAccess;
-using GrobundLibrary;
-using GrobundLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
