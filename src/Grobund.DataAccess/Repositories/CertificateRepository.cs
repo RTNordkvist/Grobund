@@ -7,11 +7,36 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics.Metrics;
 
 namespace Grobund.DataAccess.Repositories
 {
     public class CertificateRepository
     {
+        public int Create(Certificate certificate)
+        {
+            string query = "INSERT INTO dbo.certificates " +
+                            "(CertificateNumber, AssociationId, OwnerId, PaidAmount)" +
+                            "VALUES (@CertificateNumber, @AssociationId, @OwnerId, @PaidAmount)" +
+                            "SELECT @id = SCOPE_IDENTITY();";
+
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var p = new DynamicParameters();
+                p.Add("@CertificateNumber", certificate.CertificateNumber);
+                p.Add("@AssociationId", certificate.AssociationId);
+                p.Add("@OwnerId", certificate.OwnerId);
+                p.Add("@PaidAmount", certificate.PaidAmount);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute(query, p, commandType: CommandType.Text);
+                certificate.Id = p.Get<int>("@id");
+
+                return certificate.Id;
+            }
+
+        }
+
         public Certificate GetById(int id)
         {
             string query = @"SELECT * 

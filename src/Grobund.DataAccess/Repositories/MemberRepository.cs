@@ -26,15 +26,16 @@ namespace Grobund.DataAccess.Repositories
         public int Create(Member member)
         {
             string query = "INSERT INTO dbo.members " +
-                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, " +
+                "(Name, MemberNo, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, " +
                 "Country, Registered) " +
-                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, " +
+                "VALUES (@Name, @MemberNo, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, " +
                 "@PostalCode, @City, @Country, @Registered)" +
                 " SELECT @id = SCOPE_IDENTITY();";
 
             using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
+                p.Add("@MemberNo", member.MemberNo);
                 p.Add("@Name", member.Name);
                 p.Add("@Email", member.Email);
                 p.Add("@PhoneNumber", member.PhoneNumber);
@@ -44,7 +45,7 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@PostalCode", member.PostalCode);
                 p.Add("@City", member.City);
                 p.Add("@Country", member.Country);
-                p.Add("@Registered", DateTime.Now);
+                p.Add("@Registered", member.Registered != DateTime.MinValue ? member.Registered : DateTime.Now);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute(query, p, commandType: CommandType.Text);
@@ -66,6 +67,20 @@ namespace Grobund.DataAccess.Repositories
             {
                 var member = connection.QueryFirstOrDefault<Member>(query, p, commandType: CommandType.Text);
                 return member;
+            }
+        }
+
+        public int GetIdByMemberNo(int memberNo)
+        {
+            string query = "SELECT Id FROM Members WHERE MemberNo = @memberNo";
+
+            var p = new DynamicParameters();
+            p.Add("@memberNo", memberNo);
+
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var id = connection.QueryFirstOrDefault<int>(query, p, commandType: CommandType.Text);
+                return id;
             }
         }
 
