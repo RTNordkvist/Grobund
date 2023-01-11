@@ -78,7 +78,7 @@ namespace Grobund.WPF.MVVM.ViewModels
 			{
 				return;
 			}
-			association.Certificates.ForEach(x => CurrentAssociationCertificates.Add(x));
+			association.Certificates.OrderBy(x => int.Parse(x.CertificateNumber)).ToList().ForEach(x => CurrentAssociationCertificates.Add(x));
 
 			int membersCount = CurrentAssociationCertificates.Where(x => x.OwnerId != null).Count();
 

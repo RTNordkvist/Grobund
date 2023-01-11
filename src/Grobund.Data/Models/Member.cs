@@ -25,7 +25,7 @@ namespace Grobund.Data.Models
         public Member() {}
 
         public Member(string name, string email, string phoneNumber, string mobileNumber , 
-                        string address1, string address2, string city, string postalCode, string country)
+                        string address1, string address2, string postalCode, string city, string country)
         {
             Name = name;
             Email = email;
@@ -39,7 +39,7 @@ namespace Grobund.Data.Models
         }
 
         public Member(int id, string name, string email, string phoneNumber, string mobileNumber,
-                        string address1, string address2, string city, string postalCode, string country)
+                        string address1, string address2, string postalCode, string city, string country)
         {
             Id = id;
             Name = name;

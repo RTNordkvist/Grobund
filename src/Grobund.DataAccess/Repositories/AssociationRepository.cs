@@ -12,6 +12,29 @@ namespace Grobund.DataAccess.Repositories
 {
     public class AssociationRepository
     {
+        public int Create(Association association)
+        {
+            string query = "INSERT INTO dbo.associations " +
+                "(Name, MaxNoOfCertificates, CertificatePrice)" +
+                "VALUES (@Name, @MaxNoOfCertificates, @CertificatePrice)" +
+                "SELECT @id = SCOPE_IDENTITY();";
+
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            {
+                var p = new DynamicParameters();
+                p.Add("@Name", association.Name);
+                p.Add("@MaxNoOfCertificates", association.MaxNoOfCertificates);
+                p.Add("@CertificatePrice", association.CertificatePrice);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute(query, p, commandType: CommandType.Text);
+                association.Id = p.Get<int>("@id");
+
+                return association.Id;
+            }
+        }
+
+
         public Association GetById(int id)
         {
             string query = @"SELECT * 

@@ -73,7 +73,7 @@
                    Foreground="White"/>
 
         <ListBox ItemsSource="{Binding Path=CurrentAssociationCertificates}" SelectedItem="{Binding Path=SelectedCertificate}"
-                             MinHeight="20" Width="500" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4">
+                             MinHeight="20" MaxHeight="200" Width="500" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="4" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid Width="320">
