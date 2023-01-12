@@ -45,6 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Grobund.DataAccess\Grobund.DataAccess.csproj" />
     <ProjectReference Include="..\Grobund.Data\Grobund.Data.csproj" />
     <ProjectReference Include="..\GrobundDB\GrobundDB.sqlproj" />

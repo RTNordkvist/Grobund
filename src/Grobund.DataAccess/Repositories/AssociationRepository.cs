@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -25,7 +26,7 @@ namespace Grobund.DataAccess.Repositories
 
             Dictionary<int, Association> assMap = new Dictionary<int, Association>();
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var association = connection.Query<Association, Certificate, Member, Association>(query,
                     (a, c, m) =>
@@ -62,7 +63,7 @@ namespace Grobund.DataAccess.Repositories
         {
             string query = "SELECT * FROM Associations";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var associations = connection.Query<Association>(query, commandType: CommandType.Text);
                 return associations.ToList();

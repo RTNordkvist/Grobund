@@ -18,6 +18,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Reflection;
 using System.Collections;
+using MySql.Data.MySqlClient;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -25,14 +26,18 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Member member)
         {
-            string query = "INSERT INTO dbo.members " +
-                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, " +
-                "Country, Registered) " +
+            string query = "INSERT INTO Members " +
+                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country) " +
+                "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, @PostalCode, @City, @Country);";
+            string idQuery = "SELECT LAST_INSERT_ID();";
+
+            string oldQuery = "INSERT INTO dbo.members " +
+                "(Name, Email, PhoneNumber, MobileNumber, Address1, Address2, PostalCode, City, Country, Registered) " +
                 "VALUES (@Name, @Email, @PhoneNumber, @MobileNumber, @Address1, @Address2, " +
                 "@PostalCode, @City, @Country, @Registered)" +
                 " SELECT @id = SCOPE_IDENTITY();";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var p = new DynamicParameters();
                 p.Add("@Name", member.Name);
@@ -44,12 +49,17 @@ namespace Grobund.DataAccess.Repositories
                 p.Add("@PostalCode", member.PostalCode);
                 p.Add("@City", member.City);
                 p.Add("@Country", member.Country);
-                p.Add("@Registered", DateTime.Now);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                //p.Add("@Registered", DateTime.Now);
 
+                //p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                //connection.Execute(query, p, commandType: CommandType.Text);
+
+                //member.Id = p.Get<int>("@id");
                 connection.Execute(query, p, commandType: CommandType.Text);
-
-                member.Id = p.Get<int>("@id");
+                var id = connection.ExecuteScalar(idQuery);
+                int intId = Convert.ToInt32(id);
+                member.Id = intId;
 
                 return member.Id;
             }
@@ -62,7 +72,7 @@ namespace Grobund.DataAccess.Repositories
             var p = new DynamicParameters();
             p.Add("@id", id);
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var member = connection.QueryFirstOrDefault<Member>(query, p, commandType: CommandType.Text);
                 return member;
@@ -75,7 +85,7 @@ namespace Grobund.DataAccess.Repositories
 
             DataTable dataTable = new DataTable();
 
-            string connStr = GlobalConfig.GetConnectionString();
+            string connStr = GlobalConfig.GetConnectionString("matrikel");
 
             /*using (SqlConnection cn = new SqlConnection(connStr))
             {
@@ -110,11 +120,11 @@ namespace Grobund.DataAccess.Repositories
             //string connStr = GlobalConfig.GetConnectionString();
             List<Member> members = null;
             
-            using (SqlConnection cn = new SqlConnection(connStr))
+            using (MySqlConnection cn = new MySqlConnection(connStr))
             {
                 cn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(query, cn);
-                SqlCommand cmd = new SqlCommand(query, cn);
+                MySqlDataAdapter da = new MySqlDataAdapter(query, cn);
+                MySqlCommand cmd = new MySqlCommand(query, cn);
                 cmd.Parameters.AddWithValue("@id", IdSearch);
                 cmd.Parameters.AddWithValue("@name", "%" + searchText + "%");
                 cmd.Parameters.AddWithValue("@email", "%" + searchText + "%");
@@ -172,7 +182,7 @@ namespace Grobund.DataAccess.Repositories
             var p = new DynamicParameters();
             p.Add("@id", id);
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 rowsAffected = connection.Execute(query, p, commandType: CommandType.Text);
             }
@@ -196,7 +206,7 @@ namespace Grobund.DataAccess.Repositories
                 "Address1 = @Address1, Address2 = @Address2, PostalCode = @PostalCode, City = @City, Country = @Country " +
                 "WHERE Id = @Id";
             
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString("matrikel")))
             {
                 var p = new DynamicParameters();
                 p.Add("@Name", member.Name);
