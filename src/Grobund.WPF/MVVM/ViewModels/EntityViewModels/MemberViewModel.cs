@@ -40,7 +40,7 @@ namespace Grobund.WPF.MVVM.ViewModels.EntityViewModels
                 if (string.IsNullOrWhiteSpace(value))
                 {
                     _nameIsValid = false;
-                    throw new ArgumentException("Navn skal udfyldes");
+                   throw new ArgumentException("Navn skal udfyldes");
                 }
                 else if (value.Length > 50)
                 {
