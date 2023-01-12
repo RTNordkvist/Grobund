@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics.Metrics;
+using MySql.Data.MySqlClient;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -15,22 +16,25 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Certificate certificate)
         {
-            string query = "INSERT INTO dbo.certificates " +
+            string query = "INSERT INTO Certificates " +
                             "(CertificateNumber, AssociationId, OwnerId, PaidAmount)" +
-                            "VALUES (@CertificateNumber, @AssociationId, @OwnerId, @PaidAmount)" +
-                            "SELECT @id = SCOPE_IDENTITY();";
+                            "VALUES (@CertificateNumber, @AssociationId, @OwnerId, @PaidAmount);";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            string idQuery = "SELECT LAST_INSERT_ID();";
+
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
                 p.Add("@CertificateNumber", certificate.CertificateNumber);
                 p.Add("@AssociationId", certificate.AssociationId);
                 p.Add("@OwnerId", certificate.OwnerId);
                 p.Add("@PaidAmount", certificate.PaidAmount);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                //p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute(query, p, commandType: CommandType.Text);
-                certificate.Id = p.Get<int>("@id");
+                var id = connection.ExecuteScalar(idQuery);
+                int intId = Convert.ToInt32(id);
+                certificate.Id = intId;
 
                 return certificate.Id;
             }
@@ -53,7 +57,7 @@ namespace Grobund.DataAccess.Repositories
 
             Dictionary<int, Certificate> cerMap = new Dictionary<int, Certificate>();
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var certificate = connection.Query<Certificate, Association, Member, Trade, Member, Member, Certificate>(query,
                     (c, a, m, t, s, b) =>

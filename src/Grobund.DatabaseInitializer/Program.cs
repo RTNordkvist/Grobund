@@ -1,6 +1,7 @@
 ﻿using Grobund.Data.Models;
 using Grobund.DataAccess.Repositories;
 using OfficeOpenXml;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
 
 namespace Grobund.DatabaseInitializer
 {
@@ -34,16 +35,17 @@ namespace Grobund.DatabaseInitializer
                 MaxNoOfCertificates = 160,
                 CertificatePrice = 50000
             };
-            associationRepository.Create(associationJord);
+            //associationRepository.Create(associationJord);
             associations.Add(associationJord);
 
             // READ EXCELSHEET
             FileInfo existingFile = new FileInfo(FILE_PATH);
+
             using (ExcelPackage package = new ExcelPackage(existingFile))
             {
                 var members = new List<Member>();
 
-                // READ MEMBERS
+                //READ MEMBERS
                 Console.WriteLine("Adding members");
 
                 ExcelWorksheet memberWorksheet = package.Workbook.Worksheets[1];
@@ -95,7 +97,7 @@ namespace Grobund.DatabaseInitializer
                             }
                         }
 
-                        member.Id = memberRepository.Create(member);
+                        //member.Id = memberRepository.Create(member);
                         members.Add(member);
                     }
                 }
@@ -106,7 +108,9 @@ namespace Grobund.DatabaseInitializer
 
                 Console.WriteLine("Adding certificates");
                 var fabrikCertificates = new List<Certificate>();
-                var fabrik = associations.FirstOrDefault(x => x.Name == "Grobund Fabrik");
+                //var fabrik = associations.FirstOrDefault(x => x.Name == "Grobund Fabrik");
+                var fabrik = associationRepository.GetById(15);
+
                 ExcelWorksheet usercertificateWorksheet = package.Workbook.Worksheets[5];
                 int certificateRowCount = usercertificateWorksheet.Dimension.End.Row;
                 for (int row = 2; row <= certificateRowCount; row++)
@@ -116,7 +120,10 @@ namespace Grobund.DatabaseInitializer
                     {
                         var usercertificate = usercertificateWorksheet.Cells[row, 2].Value?.ToString().Trim();
 
-                        var owner = members.FirstOrDefault(x => x.MemberNo == m_id);
+                        //var owner = members.FirstOrDefault(x => x.MemberNo == m_id);
+                        int.TryParse(m_id, out int SearchID);
+                        var owner = memberRepository.ReadById(SearchID);
+
                         var certificate = new Certificate
                         {
                             CertificateNumber = usercertificate,
@@ -146,7 +153,11 @@ namespace Grobund.DatabaseInitializer
 
                 // READ JORDBEVIS
                 var jordCertificates = new List<Certificate>();
-                var jord = associations.FirstOrDefault(x => x.Name == "Grobund Jord");
+                var jord = associationRepository.GetById(16);
+
+                //var factoryCertificates = new List<Certificate>();
+                //factoryCertificates = certificateRepository.
+
                 ExcelWorksheet usercertificateJordWorksheet = package.Workbook.Worksheets[6];
                 int certificateJordRowCount = usercertificateJordWorksheet.Dimension.End.Row;
                 for (int row = 2; row <= certificateJordRowCount; row++)
@@ -157,7 +168,9 @@ namespace Grobund.DatabaseInitializer
                     {
                         var paid = usercertificateJordWorksheet.Cells[row, 2].Value?.ToString().Trim();
 
-                        var owner = members.FirstOrDefault(x => x.MemberNo == m_id);
+                        int.TryParse(m_id, out int SearchID);
+                        var owner = memberRepository.ReadById(SearchID);
+
                         var certificate = new Certificate
                         {
                             CertificateNumber = fabrikCertificates.FirstOrDefault(x => x.OwnerId == owner.Id).CertificateNumber,
@@ -202,16 +215,22 @@ namespace Grobund.DatabaseInitializer
                 {
                     var noOfTrades = r.Next(0, 5);
 
+
+
                     var seller = membersArray[r.Next(membersArray.Length)];
-                    var buyer = members.First(x => x.Id == certificate.OwnerId);
+                    var buyer = members.First(x => x.MemberNo == certificate.OwnerId.ToString());
                     var minDate = seller.Registered > buyer.Registered ? seller.Registered : buyer.Registered;
                     var maxDate = DateTime.Now.AddDays(-1);
 
                     var newTicks = r.NextInt64(minDate.Ticks, maxDate.Ticks);
                     var date = new DateTime(newTicks);
 
-                    int sellerId = seller.Id;
-                    int buyerId = buyer.Id;
+
+                    int.TryParse(seller.MemberNo, out int sellerId);
+
+                    int.TryParse(buyer.MemberNo, out int buyerId);
+
+
                     for (var i = 0; i <= noOfTrades; i++)
                     {
                         var tradefabrik = new Trade()
@@ -238,7 +257,8 @@ namespace Grobund.DatabaseInitializer
                         }
 
                         buyerId = sellerId;
-                        sellerId = membersArray[r.Next(membersArray.Length)].Id; ;
+                        int.TryParse(membersArray[r.Next(membersArray.Length)].MemberNo, out int sellerIdTemp);
+                        sellerId = sellerIdTemp;
                         date = new DateTime(r.NextInt64(minDate.Ticks, date.Ticks));
                     }
                 }

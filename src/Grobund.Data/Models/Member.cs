@@ -38,6 +38,21 @@ namespace Grobund.Data.Models
             Country = country;
         }
 
+        public Member(string name, string memberNo, string email, string phoneNumber, string mobileNumber,
+                        string address1, string address2, string postalCode, string city, string country)
+        {
+            Name = name;
+            MemberNo = memberNo;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            MobileNumber = mobileNumber;
+            Address1 = address1;
+            Address2 = address2;
+            City = city;
+            PostalCode = postalCode;
+            Country = country;
+        }
+
         public Member(int id, string name, string email, string phoneNumber, string mobileNumber,
                         string address1, string address2, string postalCode, string city, string country)
         {

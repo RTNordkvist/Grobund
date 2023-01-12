@@ -16,7 +16,7 @@ namespace Grobund.DataAccess
 
         public static string GetConnectionString()
         {
-            return GetConnectionString("GrobundDB");
+            return GetConnectionString("matrikel");
         }
     }
 }

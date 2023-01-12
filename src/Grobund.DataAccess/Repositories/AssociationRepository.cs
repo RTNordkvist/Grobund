@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace Grobund.DataAccess.Repositories
 {
@@ -14,21 +15,25 @@ namespace Grobund.DataAccess.Repositories
     {
         public int Create(Association association)
         {
-            string query = "INSERT INTO dbo.associations " +
+            string query = "INSERT INTO Associations " +
                 "(Name, MaxNoOfCertificates, CertificatePrice)" +
-                "VALUES (@Name, @MaxNoOfCertificates, @CertificatePrice)" +
-                "SELECT @id = SCOPE_IDENTITY();";
+                "VALUES (@Name, @MaxNoOfCertificates, @CertificatePrice);";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            string idQuery = "SELECT LAST_INSERT_ID();";
+
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var p = new DynamicParameters();
                 p.Add("@Name", association.Name);
                 p.Add("@MaxNoOfCertificates", association.MaxNoOfCertificates);
                 p.Add("@CertificatePrice", association.CertificatePrice);
-                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                //p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute(query, p, commandType: CommandType.Text);
-                association.Id = p.Get<int>("@id");
+                var id = connection.ExecuteScalar(idQuery);
+                int intId = Convert.ToInt32(id);
+
+                association.Id = intId;
 
                 return association.Id;
             }
@@ -48,7 +53,7 @@ namespace Grobund.DataAccess.Repositories
 
             Dictionary<int, Association> assMap = new Dictionary<int, Association>();
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var association = connection.Query<Association, Certificate, Member, Association>(query,
                     (a, c, m) =>
@@ -85,7 +90,7 @@ namespace Grobund.DataAccess.Repositories
         {
             string query = "SELECT * FROM Associations";
 
-            using (IDbConnection connection = new SqlConnection(GlobalConfig.GetConnectionString()))
+            using (IDbConnection connection = new MySqlConnection(GlobalConfig.GetConnectionString()))
             {
                 var associations = connection.Query<Association>(query, commandType: CommandType.Text);
                 return associations.ToList();
