@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.Data", "Grobund.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.DataAccess", "Grobund.DataAccess\Grobund.DataAccess.csproj", "{169A08ED-834E-4EB1-9751-163F43EF58A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grobund.DatabaseInitializer", "Grobund.DatabaseInitializer\Grobund.DatabaseInitializer.csproj", "{95C77091-24E9-4139-A8AF-B55276A29704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grobund.DatabaseInitializer", "Grobund.DatabaseInitializer\Grobund.DatabaseInitializer.csproj", "{95C77091-24E9-4139-A8AF-B55276A29704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grobund.Tests", "Grobund.Tests\Grobund.Tests.csproj", "{8DC7734D-1318-49C0-8C1D-8AD8935AA16F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{95C77091-24E9-4139-A8AF-B55276A29704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95C77091-24E9-4139-A8AF-B55276A29704}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95C77091-24E9-4139-A8AF-B55276A29704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DC7734D-1318-49C0-8C1D-8AD8935AA16F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DC7734D-1318-49C0-8C1D-8AD8935AA16F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DC7734D-1318-49C0-8C1D-8AD8935AA16F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DC7734D-1318-49C0-8C1D-8AD8935AA16F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
