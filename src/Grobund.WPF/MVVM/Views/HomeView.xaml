@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Grobund.WPF.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
-             Background="#146434">
+             Background="#FF476954">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -28,7 +28,8 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="115"/>
             <RowDefinition Height="auto"/>
@@ -41,22 +42,29 @@
 
         <TextBlock Grid.Column="1" 
                    Grid.Row="2" 
-                   FontSize="20" 
+                   FontSize="24" 
                    Text="Velkommen til (Grobund Program)" 
                    Foreground="White" 
-                   TextAlignment="Justify" Grid.ColumnSpan="2" Height="32" Margin="0,0,14,0" Grid.RowSpan="1" VerticalAlignment="Top"  />
-
+                   TextAlignment="Justify" Grid.ColumnSpan="2" Height="32" Margin="0,0,14,0" VerticalAlignment="Center" FontWeight="Bold"  />
         <TextBlock Grid.Column="1" 
                    Grid.Row="3" 
                    FontSize="14" 
+                   Text="___________________________________________________________________"
+                   Foreground="White" 
+                   TextAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Center" Panel.ZIndex="2" AllowDrop="True" Width="450" 
+                   TextWrapping="Wrap" Margin="0,0,0,3" />
+
+        <TextBlock Grid.Column="1" 
+                   Grid.Row="4" 
+                   FontSize="14" 
                    Text="Dette er et program dedikeret til at foretage ændringer i grobunds medlems database. Nedenunder er en liste over funktioner du kan udføre i dette program."
                    Foreground="White" 
-                   TextAlignment="Left" Grid.ColumnSpan="1" Margin="0,0,50,0" Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="400" 
-                   TextWrapping="Wrap" />
+                   TextAlignment="Left" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="400" 
+                   TextWrapping="Wrap" Margin="0,0,0,30" />
 
         <!-- skal ændres inden aflevering-->
         <TextBlock Grid.Column="1" 
-                   Grid.Row="5" 
+                   Grid.Row="6" 
                    FontSize="14" 
                    Text="1. Foretag registrering af medlemmer
                    2. Opdater eller fjern medlemmer
@@ -64,23 +72,16 @@
                    3. Foretag check på betalelse af beviser
                    " 
                    Foreground="White" 
-                   TextAlignment="Left" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Width="305" Height="76" Background="#FF45693E"/>
+                   TextAlignment="Left" Grid.ColumnSpan="1" VerticalAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Right" Width="305" Height="76" Background="#FF28691B" Margin="0,0,145,0"/>
 
         <TextBlock Grid.Column="1" 
-                   Grid.Row="6" 
+                   Grid.Row="7" 
                    FontSize="14" 
                    Text="Hvis du vil bruge programmet kan du trykke på de forskellige sider til venstre, de gør hvad der står beskrevet. 
                    Hvis du vil lukke programmet kan du trykke på krydset oppe i højre hjørne."
                    Foreground="White" 
-                   TextAlignment="Left" Grid.ColumnSpan="1" Margin="0,0,50,0" Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="390" 
+                   TextAlignment="Left" Grid.ColumnSpan="1" VerticalAlignment="Center" HorizontalAlignment="Left" Panel.ZIndex="2" AllowDrop="True" Width="390" 
                    TextWrapping="Wrap" />
-
-        <Image x:Name="Grobund_Billede2" 
-               Grid.Column="1" 
-               Grid.Row="1" Grid.ColumnSpan="1" Grid.RowSpan="1" 
-               Source="/Images/grobund4.png" UseLayoutRounding="true" Width="350" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"
-               
-        />
     </Grid>
 </UserControl>
 

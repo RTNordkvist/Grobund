@@ -21,7 +21,7 @@
 
     </Window.DataContext>
 
-    <Border Background="#146434"
+    <Border Background="#FF476954"
             CornerRadius="10">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -33,16 +33,6 @@
                 <RowDefinition Height="75"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
-
-
-            <TextBlock Grid.Row="0" Text="Grobund" 
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Left"
-                       Foreground="White"
-                       FontSize="22"
-                       Margin="50,0,0,0"
-                       />
 
             <StackPanel Grid.Row="1">
                 <RadioButton Name="HomeButton"  Content="Hjem" 
@@ -58,18 +48,19 @@
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding RegisterMemberViewCommand}"/>
-                <RadioButton Content="Foreninger" 
-                             Height="50"
-                             Foreground="White"
-                             FontSize="14"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding ShowAssociationViewCommand}"/>
                 <RadioButton Content="Søg Efter Medlem" 
                              Height="50"
                              Foreground="White"
                              FontSize="14"
                              Style="{StaticResource MenuButtonTheme}"
                              Command="{Binding ReadMemberViewCommand}"/>
+                <RadioButton Content="Foreninger" 
+                             Height="50"
+                             Foreground="White"
+                             FontSize="14"
+                             Style="{StaticResource MenuButtonTheme}"
+                             Command="{Binding ShowAssociationViewCommand}"/>
+
 
             </StackPanel>
 
@@ -112,6 +103,7 @@
                             Grid.Column="1"
                             Margin="10"
                             Content="{Binding CurrentView}"/>
+            <Image Source="/Images/grobund4.png" Stretch="Fill" Width="175" Height="50"/>
 
         </Grid>
     </Border>
